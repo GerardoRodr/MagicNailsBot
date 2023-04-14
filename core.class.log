@@ -2,10 +2,10 @@
   key: {
     remoteJid: '51902254469@s.whatsapp.net',
     fromMe: false,
-    id: 'A3D9202CE9D4A54FC83D72038F6F807D',
+    id: '6F4D73E16ECD54D2C616C3947A9A4BB4',
     participant: undefined
   },
-  messageTimestamp: 1681417525,
+  messageTimestamp: 1681427346,
   pushName: 'Gerardo Rodríguez',
   message: Message {
     conversation: 'Hola',
@@ -21,37 +21,132 @@
   key: {
     remoteJid: '51902254469@s.whatsapp.net',
     fromMe: false,
-    id: 'C06A3579DF8928EDB2E50723F5A0B9A4',
+    id: '21C0D74037020A15ABA2FD214CB75DA0',
     participant: undefined
   },
-  messageTimestamp: 1681417529,
+  messageTimestamp: 1681427348,
   pushName: 'Gerardo Rodríguez',
   message: Message {
-    conversation: 'doc',
+    conversation: 'Si',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'doc',
+  body: 'Si',
   from: '51902254469'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51902254469@s.whatsapp.net',
     fromMe: false,
-    id: 'A7BBF9AE761C83D86D24BB1D9B00DEDD',
+    id: '479DFE524DBF1A73553A9C38EDA9684F',
     participant: undefined
   },
-  messageTimestamp: 1681417533,
+  messageTimestamp: 1681427350,
   pushName: 'Gerardo Rodríguez',
   message: Message {
-    conversation: '2',
+    conversation: 'No',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: '2',
+  body: 'No',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '106827DF75701ECF14CC1FFFDCC8D236',
+    participant: undefined
+  },
+  messageTimestamp: 1681427353,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Ya',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ya',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '97D4DA05EB5D3D5F8DE22975934507EF',
+    participant: undefined
+  },
+  messageTimestamp: 1681427355,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Todos',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Todos',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: 'A6FFD5F4F0523DBE475D2C4E1DA8F78B',
+    participant: undefined
+  },
+  messageTimestamp: 1681427363,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Ptecio',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ptecio',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '5637FA2A079481F87EEE5BA1ACF3F475',
+    participant: undefined
+  },
+  messageTimestamp: 1681427372,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Si',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Si',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '2F966456997D6B8FF09EAD61645CDC7B',
+    participant: undefined
+  },
+  messageTimestamp: 1681427375,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Reservacion',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Reservacion',
   from: '51902254469'
 }

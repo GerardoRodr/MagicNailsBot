@@ -1,79 +1,108 @@
-const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
+const {
+  createBot,
+  createProvider,
+  createFlow,
+  addKeyword,
+  addAnswer,
+} = require("@bot-whatsapp/bot");
 
-const QRPortalWeb = require('@bot-whatsapp/portal')
-const BaileysProvider = require('@bot-whatsapp/provider/baileys')
-const MockAdapter = require('@bot-whatsapp/database/mock')
+const QRPortalWeb = require("@bot-whatsapp/portal");
+const BaileysProvider = require("@bot-whatsapp/provider/baileys");
+const MockAdapter = require("@bot-whatsapp/database/mock");
 
-const flowSecundario = addKeyword(['2', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
+const flowNegativa = addKeyword(["no", "cancelar", "canselar"]).addAnswer("Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!")
 
-const flowDocs = addKeyword(['doc', 'documentacion', 'documentación']).addAnswer(
+const flowReservacion2 = addKeyword([
+  "si",
+  "is",
+  "sí",
+  "so"
+]).addAnswer(
+  "Genial! Recuerda que en caso desees cancelar esta solicitud de reservacion, simplemente escribe la palabra **Cancelar**"
+  , null, null, [flowNegativa])
+  .addAnswer("Por favor dinos tu nombre y apellido");
+
+const flowReservacion = addKeyword([
+  "reservacion",
+  "reservación",
+  "reserbacion",
+  "recerbasion"
+]).addAnswer(
+  "Genial! Para hacer tu reservacion primeramente necesito tu *nombre* y un *apellido*"
+, null, null, [flowNegativa]);
+
+const flowPrecios = addKeyword(["precios", "precio", "ptecio"])
+  .addAnswer([
+    "Genial! Nuestros precios son los siguientes:",
+    "\nPintado de uñas: S/45",
+    "\nPintado de pelo: S/35",
+  ])
+  .addAnswer(
     [
-        '📄 Aquí encontras las documentación recuerda que puedes mejorarla',
-        'https://bot-whatsapp.netlify.app/',
-        '\n*2* Para siguiente paso.',
+      "¿Desea hacer alguna reservacion?",
+      "\nEscriba *Si* si desea agendarla ahora mismo 😁!",
     ],
     null,
     null,
-    [flowSecundario]
-)
+    [flowReservacion, flowNegativa]
+  );
 
-const flowTuto = addKeyword(['tutorial', 'tuto']).addAnswer(
-    [
-        '🙌 Aquí encontras un ejemplo rapido',
-        'https://bot-whatsapp.netlify.app/docs/example/',
-        '\n*2* Para siguiente paso.',
-    ],
-    null,
-    null,
-    [flowSecundario]
-)
+//Shift + Alt + F for Format
 
-const flowGracias = addKeyword(['gracias', 'grac']).addAnswer(
-    [
-        '🚀 Puedes aportar tu granito de arena a este proyecto',
-        '[*opencollective*] https://opencollective.com/bot-whatsapp',
-        '[*buymeacoffee*] https://www.buymeacoffee.com/leifermendez',
-        '[*patreon*] https://www.patreon.com/leifermendez',
-        '\n*2* Para siguiente paso.',
-    ],
-    null,
-    null,
-    [flowSecundario]
-)
+const flowPrincipal = addKeyword([
+  "hola",
+  "ole",
+  "alo",
+  "buenos",
+  "buenas",
+  "tardes",
+  "noches",
+  "dias",
+  "hi",
+  "hey"
+])
+  .addAnswer("🙌 Hola bienvenido al spa!")
+  .addAnswer("Soy tu asistente virtual, comentanos ¿Que te gustaría saber?", null, null)
+  .addAnswer(
+    ["Escribe **Precios** si deseas saber nuestros precios",
+     "\nEscribe **Reservacion** si deseas hacer una reservacion"], {capture:true}, (ctx, {fallBack}) => {
+      //Pasando todo a minuscula para una mejor validacion
+      const respLow = ctx.body.toLowerCase()
+      
+      const kwValid = 
+      ["reservacion",
+      "reservación",
+      "reserbacion",
+      "recerbasion",
+      "precio",
+      "ptecio",
+      "precios"]
 
-const flowDiscord = addKeyword(['discord']).addAnswer(
-    ['🤪 Únete al discord', 'https://link.codigoencasa.com/DISCORD', '\n*2* Para siguiente paso.'],
-    null,
-    null,
-    [flowSecundario]
-)
+      let valid = false
+      for(let i = 0; i < kwValid.length; i++){
+        if(respLow.includes(kwValid[i])){
+          valid = true
+          console.log("Respuesta: ", ctx.body)
+        }
+      }
 
-const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
-    .addAnswer('🙌 Hola bienvenido a este *Chatbot*')
-    .addAnswer(
-        [
-            'te comparto los siguientes links de interes sobre el proyecto',
-            '👉 *doc* para ver la documentación',
-            '👉 *gracias*  para ver la lista de videos',
-            '👉 *discord* unirte al discord',
-        ],
-        null,
-        null,
-        [flowDocs, flowGracias, flowTuto, flowDiscord]
-    )
+      if(valid == false){
+        return fallBack()
+      }
+    }, [flowPrecios, flowReservacion]);
 
 const main = async () => {
-    const adapterDB = new MockAdapter()
-    const adapterFlow = createFlow([flowPrincipal])
-    const adapterProvider = createProvider(BaileysProvider)
+  const adapterDB = new MockAdapter();
+  const adapterFlow = createFlow([flowPrincipal]);
+  const adapterProvider = createProvider(BaileysProvider);
 
-    createBot({
-        flow: adapterFlow,
-        provider: adapterProvider,
-        database: adapterDB,
-    })
+  createBot({
+    flow: adapterFlow,
+    provider: adapterProvider,
+    database: adapterDB,
+  });
 
-    QRPortalWeb()
-}
+  QRPortalWeb();
+};
 
-main()
+main();
