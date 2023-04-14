@@ -1,1 +1,1 @@
-[{"senderKeyId":241090122,"senderChainKey":{"iteration":2,"seed":"JgQt7li5QRIYpfmFYaGqQYJiBIJg060FenYbyl45DLE="},"senderSigningKey":{"public":"BX81KbdPcMMcFa+Aj4NX8lCk5yrTf/pTmIDmVu7Rvd45"},"senderMessageKeys":[]},{"senderKeyId":241090122,"senderChainKey":{"iteration":3,"seed":"QMe+E4PGeGdXLGpLCmdlGuqZWaTAJP3BW4I1EHnb6h4="},"senderSigningKey":{"public":"BX81KbdPcMMcFa+Aj4NX8lCk5yrTf/pTmIDmVu7Rvd45"}}]
+{"MAX_STATES":5,"senderKeyStates":[]}

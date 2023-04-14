@@ -1,69 +1,50 @@
 [handleMsg]:  {
   key: {
-    remoteJid: '51902254469@s.whatsapp.net',
+    remoteJid: '51963749433@s.whatsapp.net',
     fromMe: false,
-    id: 'F3ECD3E84C132B8E5A20FEE362EC2A25',
+    id: '63F33E841FB3A935F9F802F6EFE0197B',
     participant: undefined
   },
-  messageTimestamp: 1681449362,
-  pushName: 'Gerardo Rodríguez',
+  messageTimestamp: 1681489620,
+  pushName: 'Jjjjjjj',
+  messageStubType: 2,
+  messageStubParameters: [ 'Message absent from node' ],
+  body: undefined,
+  from: '51963749433'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51963749433@s.whatsapp.net',
+    fromMe: false,
+    id: '63F33E841FB3A935F9F802F6EFE0197B',
+    participant: undefined
+  },
+  messageTimestamp: 1681489621,
+  pushName: 'Jjjjjjj',
   message: Message {
-    conversation: 'Hola',
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'Hola',
+      previewType: 0,
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
   body: 'Hola',
-  from: '51902254469'
+  from: '51963749433'
 }
 [handleMsg]:  {
   key: {
-    remoteJid: '51902254469@s.whatsapp.net',
+    remoteJid: '51963749433@s.whatsapp.net',
     fromMe: false,
-    id: 'BAF508E080F8A2218C81590A8BBDBBC6',
+    id: 'C66F205AC85A4AF173AE273302FBF4C5',
     participant: undefined
   },
-  messageTimestamp: 1681449367,
-  pushName: 'Gerardo Rodríguez',
-  message: Message {
-    conversation: 'Reservación',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Reservación',
-  from: '51902254469'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51902254469@s.whatsapp.net',
-    fromMe: false,
-    id: '878558127F96EB95190A06D0D946C7F0',
-    participant: undefined
-  },
-  messageTimestamp: 1681449372,
-  pushName: 'Gerardo Rodríguez',
-  message: Message {
-    conversation: 'Hola',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Hola',
-  from: '51902254469'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51902254469@s.whatsapp.net',
-    fromMe: false,
-    id: '151637AD1FCA5A68179EB11D948EE379',
-    participant: undefined
-  },
-  messageTimestamp: 1681449375,
-  pushName: 'Gerardo Rodríguez',
+  messageTimestamp: 1681489722,
+  pushName: 'Jjjjjjj',
   message: Message {
     conversation: 'Precios',
     messageContextInfo: MessageContextInfo {
@@ -72,17 +53,17 @@
     }
   },
   body: 'Precios',
-  from: '51902254469'
+  from: '51963749433'
 }
 [handleMsg]:  {
   key: {
-    remoteJid: '51902254469@s.whatsapp.net',
+    remoteJid: '51963749433@s.whatsapp.net',
     fromMe: false,
-    id: 'B41B48A9FF34CBEFADC64AAE5E165EB5',
+    id: '857E0EF0E0952F5B478D24958844D957',
     participant: undefined
   },
-  messageTimestamp: 1681449378,
-  pushName: 'Gerardo Rodríguez',
+  messageTimestamp: 1681489730,
+  pushName: 'Jjjjjjj',
   message: Message {
     conversation: 'Si',
     messageContextInfo: MessageContextInfo {
@@ -91,43 +72,5 @@
     }
   },
   body: 'Si',
-  from: '51902254469'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51902254469@s.whatsapp.net',
-    fromMe: false,
-    id: '107541DAE3B7FEF6D9FD1FDF86D31D3F',
-    participant: undefined
-  },
-  messageTimestamp: 1681449385,
-  pushName: 'Gerardo Rodríguez',
-  message: Message {
-    conversation: 'Gerardo Rodríguez',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Gerardo Rodríguez',
-  from: '51902254469'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51902254469@s.whatsapp.net',
-    fromMe: false,
-    id: 'C19BAFEC62A276FA5D87367527E879AE',
-    participant: undefined
-  },
-  messageTimestamp: 1681449392,
-  pushName: 'Gerardo Rodríguez',
-  message: Message {
-    conversation: 'Uñas',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Uñas',
-  from: '51902254469'
+  from: '51963749433'
 }

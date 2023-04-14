@@ -1,9 +1,14 @@
+let name;
+let servicio;
+let fecha;
+
 const {
   createBot,
   createProvider,
   createFlow,
   addKeyword,
   addAnswer,
+  addAction
 } = require("@bot-whatsapp/bot");
 
 const QRPortalWeb = require("@bot-whatsapp/portal");
@@ -17,9 +22,6 @@ const flowNegativa = addKeyword(["no", "cancelar", "canselar"]).addAnswer(
 );
 
 //Declaracion de una variable que guarde el nombre del cliente
-let name;
-let servicio;
-let fecha;
 
 const flowReservConfirmacion = addKeyword(arrSi).addAnswer("hi");
 
@@ -41,7 +43,7 @@ const flowReservacion = addKeyword([
   .addAnswer(
     "Por favor dinos tu nombre y apellido",
     { capture: true },
-    (ctx, { fallBack }) => {
+    async (ctx, { fallBack }) => {
       //Pasando todo a minuscula para una mejor validacion
       const nameRgx =
         /^[A-Za-zÁ-ÿ\u00C0-\u017F']+([\s-][A-Za-zÁ-ÿ\u00C0-\u017F']+)*$/;
@@ -58,8 +60,9 @@ const flowReservacion = addKeyword([
   .addAnswer(
     "Ahora necesito que me indiques el servicio que necesitas",
     { capture: true },
-    (ctx, { fallBack }) => {
-      if (ctx.body.length() < 3) {
+    async (ctx, { fallBack }) => {
+      let serv = ctx.body
+      if (serv.length < 3) {
         fallBack();
       } else {
         servicio = ctx.body;
@@ -70,7 +73,7 @@ const flowReservacion = addKeyword([
   .addAnswer(
     "Por ultimo necesito que me indiques tu fecha ideal y la hora de tu reservacion.",
     { capture: true },
-    (ctx, { fallBack }) => {
+    async (ctx, { fallBack }) => {
 
       let fecha = ctx.body;
       console.log(fecha.length)
@@ -160,9 +163,28 @@ const flowPrincipal = addKeyword([
     [flowPrecios, flowReservacion]
   );
 
+const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)
+
+const flowPrueba = addKeyword("test").addAnswer("Nombre", {capture: true}, 
+(ctx, {fallBack}) => {
+  if(ctx.body != "Gerardo"){
+    fallBack("Por favor ingrese correctamente su nombre")
+  } else {
+    console.log(ctx.body)
+  }
+
+  modifName(ctx.body);
+}).addAnswer(`Entonces tu nombre es ${name}`, null, null, [flowSiguiente])
+
+const modifName = (n) => {
+  name = n;
+  console.log("Variable Modificada:" + name)
+} 
+
+
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal]);
+  const adapterFlow = createFlow([flowPrincipal, flowPrueba]);
   const adapterProvider = createProvider(BaileysProvider);
 
   createBot({
