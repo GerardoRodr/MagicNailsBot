@@ -23,7 +23,15 @@ let fecha;
 
 const flowReservConfirmacion = addKeyword(arrSi).addAnswer("hi");
 
-const flowReservacion = addKeyword(arrSi)
+const flowReservacion = addKeyword([
+  "reservacion",
+  "reservación",
+  "reserbacion",
+  "recerbasion",
+  "precio",
+  "ptecio",
+  "precios",
+])
   .addAnswer(
     "Genial! Recuerda que en caso desees cancelar esta solicitud de reservacion, simplemente escriba la palabra **Cancelar**",
     null,
@@ -48,7 +56,7 @@ const flowReservacion = addKeyword(arrSi)
   )
   .addAnswer(`Genial, entonces tu nombre es ${name}`)
   .addAnswer(
-    "\nAhora necesito que me indiques el servicio que necesitas",
+    "Ahora necesito que me indiques el servicio que necesitas",
     { capture: true },
     (ctx, { fallBack }) => {
       if (ctx.body.length() < 3) {
@@ -63,7 +71,10 @@ const flowReservacion = addKeyword(arrSi)
     "Por ultimo necesito que me indiques tu fecha ideal y la hora de tu reservacion.",
     { capture: true },
     (ctx, { fallBack }) => {
-      if (ctx.body.length() < 3) {
+
+      let fecha = ctx.body;
+      console.log(fecha.length)
+      if (fecha.length < 3) {
         fallBack();
       } else {
         fecha = ctx.body;

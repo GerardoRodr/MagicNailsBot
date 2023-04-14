@@ -1,19 +1,133 @@
 [handleMsg]:  {
   key: {
-    remoteJid: '51969137630@s.whatsapp.net',
+    remoteJid: '51902254469@s.whatsapp.net',
     fromMe: false,
-    id: '7BD977F0CD2D475510157B84DF523797',
+    id: 'F3ECD3E84C132B8E5A20FEE362EC2A25',
     participant: undefined
   },
-  messageTimestamp: 1681443998,
-  pushName: 'Debora',
+  messageTimestamp: 1681449362,
+  pushName: 'Gerardo Rodríguez',
   message: Message {
-    conversation: 'Lo viste?',
+    conversation: 'Hola',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Lo viste?',
-  from: '51969137630'
+  body: 'Hola',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: 'BAF508E080F8A2218C81590A8BBDBBC6',
+    participant: undefined
+  },
+  messageTimestamp: 1681449367,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Reservación',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Reservación',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '878558127F96EB95190A06D0D946C7F0',
+    participant: undefined
+  },
+  messageTimestamp: 1681449372,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '151637AD1FCA5A68179EB11D948EE379',
+    participant: undefined
+  },
+  messageTimestamp: 1681449375,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Precios',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Precios',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: 'B41B48A9FF34CBEFADC64AAE5E165EB5',
+    participant: undefined
+  },
+  messageTimestamp: 1681449378,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Si',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Si',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '107541DAE3B7FEF6D9FD1FDF86D31D3F',
+    participant: undefined
+  },
+  messageTimestamp: 1681449385,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Gerardo Rodríguez',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Gerardo Rodríguez',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: 'C19BAFEC62A276FA5D87367527E879AE',
+    participant: undefined
+  },
+  messageTimestamp: 1681449392,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    conversation: 'Uñas',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Uñas',
+  from: '51902254469'
 }
