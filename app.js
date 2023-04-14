@@ -2,6 +2,12 @@ let name;
 let servicio;
 let fecha;
 
+//Servicio
+//Promociones
+//Cita
+//Contactos
+//Direccion
+
 const {
   createBot,
   createProvider,
@@ -21,11 +27,7 @@ const flowNegativa = addKeyword(["no", "cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
 
-//Declaracion de una variable que guarde el nombre del cliente
-
-const flowReservConfirmacion = addKeyword(arrSi).addAnswer("hi");
-
-const flowReservacion = addKeyword([
+const flowContacto = addKeyword([
   "reservacion",
   "reservación",
   "reserbacion",
@@ -130,37 +132,20 @@ const flowPrincipal = addKeyword([
   )
   .addAnswer(
     [
-      "Escribe **Precios** si deseas saber nuestros precios",
-      "\nEscribe **Reservacion** si deseas hacer una reservacion",
+      "*Selecciona una de nuestras opciones: *",
+      "1️⃣)  Servicios",
+      "\n2️⃣) Promociones",
+      "\n3️⃣) Contacto",
+      "\n4️⃣) Agendar una Cita",
+      "\n5️⃣) Ubicacion"
     ],
     { capture: true },
     (ctx, { fallBack }) => {
-      //Pasando todo a minuscula para una mejor validacion
-      const respLow = ctx.body.toLowerCase();
-
-      const kwValid = [
-        "reservacion",
-        "reservación",
-        "reserbacion",
-        "recerbasion",
-        "precio",
-        "ptecio",
-        "precios",
-      ];
-
-      let valid = false;
-      for (let i = 0; i < kwValid.length; i++) {
-        if (respLow.includes(kwValid[i])) {
-          valid = true;
-          console.log("Respuesta: ", ctx.body);
-        }
-      }
-
-      if (valid == false) {
+      if (ctx.body != false) {
         return fallBack();
       }
     },
-    [flowPrecios, flowReservacion]
+    [flowPrecios, flowContacto]
   );
 
 const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)
