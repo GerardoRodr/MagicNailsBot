@@ -1,0 +1,96 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '87E429FADDFCADE5FE2DE0939E2FDF0C',
+    participant: undefined
+  },
+  messageTimestamp: 1681596182,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'Hola',
+      previewType: 0,
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: 'D0F56649529004BB6C0419414A5DA88D',
+    participant: undefined
+  },
+  messageTimestamp: 1681596193,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '3',
+      previewType: 0,
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '3',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: '8A71B79907E993BE3E928D21635B4ACF',
+    participant: undefined
+  },
+  messageTimestamp: 1681596196,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '0',
+      previewType: 0,
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '0',
+  from: '51902254469'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51902254469@s.whatsapp.net',
+    fromMe: false,
+    id: 'F9365F12EFE3EB09AA5B09DAAEAC0497',
+    participant: undefined
+  },
+  messageTimestamp: 1681596203,
+  pushName: 'Gerardo Rodríguez',
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: '1',
+      previewType: 0,
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '1',
+  from: '51902254469'
+}

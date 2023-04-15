@@ -31,6 +31,10 @@ const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
 
+const flowPromociones = addKeyword(["4", "promos", "promociones", "prom"])
+.addAnswer("Tenemos las siguientes promociones:")
+.addAnswer("")
+
 const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "queda"]).addAnswer(
 [
   "*DIRECCION:*", 
@@ -142,14 +146,10 @@ const flowServicios = addKeyword([
     "- LIMPIEZA FACIAL",
     "- DEPILACIONES",
   ])
-  .addAnswer(
-    [
-      "¿Desea hacer alguna reservacion?",
-      "\nSi desea agendarla ahora mismo, escriba 2️⃣ 😁!",
-    ],
+  .addAnswer("Si desea ver el detalle de algun servicio escriba el numero correspondiente",
     null,
     null,
-    [flowCita, flowNegativa]
+    [flowNegativa]
   );
 
 const flowPrincipal = addKeyword([
@@ -174,11 +174,11 @@ const flowPrincipal = addKeyword([
   .addAnswer(
     [
       "*Porfavor selecciona una de nuestras opciones:*",
-      "\n1️⃣  Servicios", //LISTO
-      "\n2️⃣ Agendar una Cita", //IN DEV
-      "\n3️⃣ Contacto", //LISTO
-      "\n4️⃣ Promociones", 
-      "\n5️⃣ Ubicacion", //PENDIENTE
+      "\n_1️⃣ Servicios_", //LISTO
+      "\n_2️⃣ Agendar una Cita_", //IN DEV
+      "\n_3️⃣ Contacto_", //LISTO
+      "\n_4️⃣ Promociones_", 
+      "\n_5️⃣ Ubicacion_", //LISTO
     ],
     { capture: true },
     (ctx, { fallBack }) => {
@@ -198,7 +198,7 @@ const flowPrincipal = addKeyword([
         return fallBack();
       }
     },
-    [flowServicios, flowCita, flowContacto, flowUbicacion]
+    [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
   );
 
 /*const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)

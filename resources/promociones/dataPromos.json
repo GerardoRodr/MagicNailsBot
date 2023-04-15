@@ -1,0 +1,22 @@
+{
+    "promociones": [
+      {
+        "nombre": "Promo Primavera",
+        "descripcion": "Disfruta de un descuento especial en nuestros servicios de spa para celebrar la llegada de la primavera.",
+        "img": "/portals/promociones/imgs/promo_primavera.jpg",
+        "precioPromocion": 50
+      },
+      {
+        "nombre": "Promo de Parejas",
+        "descripcion": "Disfruta de un día romántico en nuestro spa con esta promoción especial para parejas.",
+        "img": "/portals/promociones/imgs/promo_parejas.jpg",
+        "precioPromocion": 100
+      },
+      {
+        "nombre": "Promo de Cumpleaños",
+        "descripcion": "Celebra tu cumpleaños con nosotros y obtén un descuento en nuestros servicios de spa.",
+        "img": "/portals/promociones/imgs/promo_cumpleanios.jpg",
+        "precioPromocion": 40
+      }
+    ]
+  }
