@@ -31,6 +31,23 @@ const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
 
+const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "queda"]).addAnswer(
+[
+  "*DIRECCION:*", 
+  "▬  Av. Isabel de Bobadilla #388",
+  "  (Urbanizacion El Recreo-Trujillo)",
+  "▬ Link de GOOGLE MAPS: https://goo.gl/maps/Vs889z12bSScCZiHA",
+  "\n*TELEFONO DE CITAS:*",
+  "▬  ☏ 974322773 ☏",
+  '(Si toma taxi, indique: "Interseccion de Cuba y Bobadilla en EL RECREO")'
+]
+)
+.addAnswer(
+  "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+  null,
+  null
+);
+
 const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
   .addAnswer(["TELEFONO DE CITAS - WSP:", "▬  📞 974322773 📞"])
   .addAnswer(
@@ -146,8 +163,7 @@ const flowPrincipal = addKeyword([
   "dias",
   "hi",
   "hey",
-  "0",
-  "quiero"
+  "0"
 ])
   .addAnswer("🙌 Hola bienvenid@!")
   .addAnswer(
@@ -160,9 +176,9 @@ const flowPrincipal = addKeyword([
       "*Porfavor selecciona una de nuestras opciones:*",
       "\n1️⃣  Servicios", //LISTO
       "\n2️⃣ Agendar una Cita", //IN DEV
-      "\n3️⃣ Contacto",
-      "\n4️⃣ Promociones",
-      "\n5️⃣ Ubicacion",
+      "\n3️⃣ Contacto", //LISTO
+      "\n4️⃣ Promociones", 
+      "\n5️⃣ Ubicacion", //PENDIENTE
     ],
     { capture: true },
     (ctx, { fallBack }) => {
@@ -182,7 +198,7 @@ const flowPrincipal = addKeyword([
         return fallBack();
       }
     },
-    [flowServicios, flowCita, flowContacto]
+    [flowServicios, flowCita, flowContacto, flowUbicacion]
   );
 
 /*const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)
