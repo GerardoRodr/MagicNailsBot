@@ -1,76 +1,57 @@
 [handleMsg]:  {
   key: {
-    remoteJid: '51963749433@s.whatsapp.net',
+    remoteJid: '51902254469@s.whatsapp.net',
     fromMe: false,
-    id: '63F33E841FB3A935F9F802F6EFE0197B',
+    id: '57B5D60371B87FA763EAC9E368A18AC4',
     participant: undefined
   },
-  messageTimestamp: 1681489620,
-  pushName: 'Jjjjjjj',
-  messageStubType: 2,
-  messageStubParameters: [ 'Message absent from node' ],
-  body: undefined,
-  from: '51963749433'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51963749433@s.whatsapp.net',
-    fromMe: false,
-    id: '63F33E841FB3A935F9F802F6EFE0197B',
-    participant: undefined
-  },
-  messageTimestamp: 1681489621,
-  pushName: 'Jjjjjjj',
+  messageTimestamp: 1681512535,
+  pushName: 'Gerardo Rodríguez',
   message: Message {
-    extendedTextMessage: ExtendedTextMessage {
-      text: 'Hola',
-      previewType: 0,
-      contextInfo: [ContextInfo],
-      inviteLinkGroupTypeV2: 0
-    },
+    conversation: 'Hola',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
   body: 'Hola',
-  from: '51963749433'
+  from: '51902254469'
 }
 [handleMsg]:  {
   key: {
-    remoteJid: '51963749433@s.whatsapp.net',
+    remoteJid: '51902254469@s.whatsapp.net',
     fromMe: false,
-    id: 'C66F205AC85A4AF173AE273302FBF4C5',
+    id: '46B0FDB0346DC54807242893A4C62174',
     participant: undefined
   },
-  messageTimestamp: 1681489722,
-  pushName: 'Jjjjjjj',
+  messageTimestamp: 1681512536,
+  pushName: 'Gerardo Rodríguez',
   message: Message {
-    conversation: 'Precios',
+    conversation: '4',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Precios',
-  from: '51963749433'
+  body: '4',
+  from: '51902254469'
 }
 [handleMsg]:  {
   key: {
-    remoteJid: '51963749433@s.whatsapp.net',
+    remoteJid: '51902254469@s.whatsapp.net',
     fromMe: false,
-    id: '857E0EF0E0952F5B478D24958844D957',
+    id: '5D2B873F919399D8F166CCDCFD98EF3A',
     participant: undefined
   },
-  messageTimestamp: 1681489730,
-  pushName: 'Jjjjjjj',
+  messageTimestamp: 1681512539,
+  pushName: 'Gerardo Rodríguez',
   message: Message {
-    conversation: 'Si',
+    conversation: 'Gerardo',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Si',
-  from: '51963749433'
+  body: 'Gerardo',
+  from: '51902254469'
 }

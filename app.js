@@ -1,4 +1,4 @@
-let name;
+let nombreCliente;
 let servicio;
 let fecha;
 
@@ -14,103 +14,116 @@ const {
   createFlow,
   addKeyword,
   addAnswer,
-  addAction
+  addAction,
 } = require("@bot-whatsapp/bot");
 
 const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
-const arrSi = ["si", "is", "sí", "so"];
+//const arrSi = ["si", "is", "sí", "so"];
 
-const flowNegativa = addKeyword(["no", "cancelar", "canselar"]).addAnswer(
+const flowNegativa = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
 
-const flowContacto = addKeyword([
-  "reservacion",
-  "reservación",
-  "reserbacion",
-  "recerbasion",
-  "precio",
-  "ptecio",
-  "precios",
-])
+const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
+  "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
+);
+
+const flowCita = addKeyword(["2", "dos", "cita"])
   .addAnswer(
-    "Genial! Recuerda que en caso desees cancelar esta solicitud de reservacion, simplemente escriba la palabra **Cancelar**",
+    "Genial! Recuerda que en caso desees cancelar esta solicitud de cita, simplemente escriba la palabra **Cancelar**",
     null,
     null,
-    [flowNegativa]
+    [flowCancelar]
   )
   .addAnswer(
     "Por favor dinos tu nombre y apellido",
     { capture: true },
-    async (ctx, { fallBack }) => {
+    (ctx, { fallBack }) => {
       //Pasando todo a minuscula para una mejor validacion
       const nameRgx =
         /^[A-Za-zÁ-ÿ\u00C0-\u017F']+([\s-][A-Za-zÁ-ÿ\u00C0-\u017F']+)*$/;
       //Validamos que se escriba bien el nombre
       if (!nameRgx.test(ctx.body)) {
-        fallBack();
+        fallBack(["Me parece que el nombre que es ingresado no es valido, trada de escribirlo de otra manera.",
+        "\nEjemplo: ",
+        "_Luis Ramirez_"]);
       } else {
-        name = ctx.body;
-        console.log(name);
+        nombreCliente = ctx.body;
+        console.log(nombreCliente);
       }
-    }
+    },
+    [flowCancelar]
   )
-  .addAnswer(`Genial, entonces tu nombre es ${name}`)
+  .addAnswer(`Genial, entonces tu nombre es ${nombreCliente}`)
   .addAnswer(
     "Ahora necesito que me indiques el servicio que necesitas",
     { capture: true },
     async (ctx, { fallBack }) => {
-      let serv = ctx.body
+      let serv = ctx.body;
       if (serv.length < 3) {
         fallBack();
       } else {
         servicio = ctx.body;
         console.log(servicio);
       }
-    }
+    },
+    [flowCancelar]
   )
   .addAnswer(
     "Por ultimo necesito que me indiques tu fecha ideal y la hora de tu reservacion.",
     { capture: true },
     async (ctx, { fallBack }) => {
-
       let fecha = ctx.body;
-      console.log(fecha.length)
+      console.log(fecha.length);
       if (fecha.length < 3) {
         fallBack();
       } else {
         fecha = ctx.body;
         console.log(fecha);
       }
-    }
+    },
+    [flowCancelar]
   )
-  .addAnswer(
-    ["Todo listo! El detalle de tu reservacion es la siguiente:",
-     `\nNombre: ${name}`,
-     `\nServicio: ${servicio}`,
-     `\nFecha ideal: ${fecha}`])
-  .addAnswer("En unos momentos se te comunicara con una asistente real para que puedan consolidar la reservacion 🙌");
-
-const flowPrecios = addKeyword(["precios", "precio", "ptecio"])
   .addAnswer([
-    "Genial! Nuestros precios son los siguientes:",
-    "\nPintado de uñas: S/45",
-    "\nPintado de pelo: S/35",
+    "Todo listo! El detalle de tu reservacion es la siguiente:",
+    `\nNombre: ${nombreCliente}`,
+    `\nServicio: ${servicio}`,
+    `\nFecha ideal: ${fecha}`,
+  ])
+  .addAnswer(
+    "En unos momentos se te comunicara con una asistente real para que puedan consolidar la reservacion 🙌"
+  );
+
+const flowServicios = addKeyword([
+  "1",
+  "servicios",
+  "precio",
+  "ptecio",
+  "precios",
+])
+  .addAnswer([
+    "Genial! Nuestros servicios son los siguientes:",
+    "- LACEADO",
+    "- MECHAS",
+    "- MANICURE",
+    "- MAQUILLAJE",
+    "- PESTAÑAS Y CEJAS",
+    "- PEDICURE",
+    "- LIMPIEZA FACIAL",
+    "- DEPILACIONES",
   ])
   .addAnswer(
     [
       "¿Desea hacer alguna reservacion?",
-      "\nSi desea agendarla ahora mismo, escriba *Si* 😁!",
+      "\nSi desea agendarla ahora mismo, escriba 2️⃣ 😁!",
     ],
     null,
     null,
-    [flowReservacion, flowNegativa]
+    [flowCita, flowNegativa]
   );
-
-//Shift + Alt + F for Format
 
 const flowPrincipal = addKeyword([
   "hola",
@@ -132,23 +145,35 @@ const flowPrincipal = addKeyword([
   )
   .addAnswer(
     [
-      "*Selecciona una de nuestras opciones: *",
-      "1️⃣)  Servicios",
-      "\n2️⃣) Promociones",
-      "\n3️⃣) Contacto",
-      "\n4️⃣) Agendar una Cita",
-      "\n5️⃣) Ubicacion"
+      "*Porfavor selecciona una de nuestras opciones: *",
+      "1️⃣  Servicios", //LISTO
+      "\n2️⃣ Agendar una Cita", //IN DEV
+      "\n3️⃣ Contacto",
+      "\n4️⃣ Promociones",
+      "\n5️⃣ Ubicacion",
     ],
     { capture: true },
     (ctx, { fallBack }) => {
-      if (ctx.body != false) {
+      const rsp = ctx.body
+
+      const kwValid = ["1", "2", "3", "4", "5"];
+
+      let valid = false;
+      for (let i = 0; i < kwValid.length; i++) {
+        if (rsp.includes(kwValid[i])) {
+          valid = true;
+          console.log("Respuesta: ", ctx.body);
+        }
+      }
+
+      if (valid == false) {
         return fallBack();
       }
     },
-    [flowPrecios, flowContacto]
+    [flowServicios, flowCita]
   );
 
-const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)
+/*const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)
 
 const flowPrueba = addKeyword("test").addAnswer("Nombre", {capture: true}, 
 (ctx, {fallBack}) => {
@@ -165,13 +190,12 @@ const modifName = (n) => {
   name = n;
   console.log("Variable Modificada:" + name)
 } 
-
+*/
 
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal, flowPrueba]);
+  const adapterFlow = createFlow([flowPrincipal]);
   const adapterProvider = createProvider(BaileysProvider);
-
   createBot({
     flow: adapterFlow,
     provider: adapterProvider,
