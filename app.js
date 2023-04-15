@@ -36,8 +36,7 @@ const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
   .addAnswer(
     "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
     null,
-    null,
-    [flujoPrincipal]
+    null
   );
 
 const flowCita = addKeyword(["2", "dos", "cita"])
@@ -148,17 +147,18 @@ const flowPrincipal = addKeyword([
   "hi",
   "hey",
   "0",
+  "quiero"
 ])
-  .addAnswer("🙌 Hola bienvenido al spa!")
+  .addAnswer("🙌 Hola bienvenid@!")
   .addAnswer(
-    "Soy tu asistente virtual, comentanos ¿Que te gustaría saber?",
+    "Comentanos ¿Que te gustaría saber?",
     null,
     null
   )
   .addAnswer(
     [
-      "*Porfavor selecciona una de nuestras opciones: *",
-      "1️⃣  Servicios", //LISTO
+      "*Porfavor selecciona una de nuestras opciones:*",
+      "\n1️⃣  Servicios", //LISTO
       "\n2️⃣ Agendar una Cita", //IN DEV
       "\n3️⃣ Contacto",
       "\n4️⃣ Promociones",

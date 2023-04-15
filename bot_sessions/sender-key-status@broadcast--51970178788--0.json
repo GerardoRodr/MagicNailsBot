@@ -1,1 +1,1 @@
-{"MAX_STATES":5,"senderKeyStates":[]}
+[{"senderKeyId":729682896,"senderChainKey":{"iteration":1,"seed":"VRm0CRYCxs4IKj5tLmInic96Zszm5j0YkdVrFmtLy40="},"senderSigningKey":{"public":"BZyEwF1+4ThR1GW5XQLHgMBqq4wHIhoO7JYXupb+1V5L"},"senderMessageKeys":[]},{"senderKeyId":729682896,"senderChainKey":{"iteration":3,"seed":"zUl8RdFajiCSaqJIYaiHHmA4PNoH+nn3qUnrpbkgftA="},"senderSigningKey":{"public":"BZyEwF1+4ThR1GW5XQLHgMBqq4wHIhoO7JYXupb+1V5L"}}]
