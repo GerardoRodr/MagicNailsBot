@@ -31,6 +31,15 @@ const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
 
+const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
+  .addAnswer(["TELEFONO DE CITAS - WSP:", "▬  📞 974322773 📞"])
+  .addAnswer(
+    "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+    null,
+    null,
+    [flujoPrincipal]
+  );
+
 const flowCita = addKeyword(["2", "dos", "cita"])
   .addAnswer(
     "Genial! Recuerda que en caso desees cancelar esta solicitud de cita, simplemente escriba la palabra **Cancelar**",
@@ -47,9 +56,11 @@ const flowCita = addKeyword(["2", "dos", "cita"])
         /^[A-Za-zÁ-ÿ\u00C0-\u017F']+([\s-][A-Za-zÁ-ÿ\u00C0-\u017F']+)*$/;
       //Validamos que se escriba bien el nombre
       if (!nameRgx.test(ctx.body)) {
-        fallBack(["Me parece que el nombre que es ingresado no es valido, trada de escribirlo de otra manera.",
-        "\nEjemplo: ",
-        "_Luis Ramirez_"]);
+        fallBack([
+          "Me parece que el nombre que es ingresado no es valido, trada de escribirlo de otra manera.",
+          "\nEjemplo: ",
+          "_Luis Ramirez_",
+        ]);
       } else {
         nombreCliente = ctx.body;
         console.log(nombreCliente);
@@ -136,6 +147,7 @@ const flowPrincipal = addKeyword([
   "dias",
   "hi",
   "hey",
+  "0",
 ])
   .addAnswer("🙌 Hola bienvenido al spa!")
   .addAnswer(
@@ -154,7 +166,7 @@ const flowPrincipal = addKeyword([
     ],
     { capture: true },
     (ctx, { fallBack }) => {
-      const rsp = ctx.body
+      const rsp = ctx.body;
 
       const kwValid = ["1", "2", "3", "4", "5"];
 
@@ -170,7 +182,7 @@ const flowPrincipal = addKeyword([
         return fallBack();
       }
     },
-    [flowServicios, flowCita]
+    [flowServicios, flowCita, flowContacto]
   );
 
 /*const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)
