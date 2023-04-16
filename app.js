@@ -2,12 +2,6 @@ let nombreCliente;
 let servicio;
 let fecha;
 
-//Servicio
-//Promociones
-//Cita
-//Contactos
-//Direccion
-
 const {
   createBot,
   createProvider,
@@ -17,6 +11,7 @@ const {
   addAction,
 } = require("@bot-whatsapp/bot");
 
+const fs = require("fs")
 const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
@@ -31,9 +26,33 @@ const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
 
+let dataPromos = null;
+
+const readPromos = () => {
+ fs.readFile("./resources/promociones/dataPromos.json", "utf8", (err, data) => {
+  if(err) throw err;
+  dataPromos = JSON.parse(data)
+  console.log(dataPromos.promociones[0].nombre)
+ })
+}
+
+readPromos();
+
 const flowPromociones = addKeyword(["4", "promos", "promociones", "prom"])
-.addAnswer("Tenemos las siguientes promociones:")
-.addAnswer("")
+.addAnswer("Tenemos las siguientes promociones:", null, async (_, {flowDynamic}) => {
+
+  const res = ""
+
+  datos.promociones.forEach(promo => {
+    res += `Nombre: ${promo.nombre}
+                  \nImg: ${promo.img}
+                  \nPrecio Promoción: ${promo.precioPromocion}\n`;
+
+  });
+
+
+  return await flowDynamic({body:res}), await flowDynamic({body:res})
+});
 
 const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "queda"]).addAnswer(
 [
@@ -46,6 +65,7 @@ const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "qu
   '(Si toma taxi, indique: "Interseccion de Cuba y Bobadilla en EL RECREO")'
 ]
 )
+.addAnswer("*Fachada del local*", {media:"./resources/ubicacion/imgs/fachadaLocal.jpeg"})
 .addAnswer(
   "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
   null,
