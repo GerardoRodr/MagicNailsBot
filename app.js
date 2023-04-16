@@ -1,4 +1,4 @@
-let nombreCliente;
+global.nombreCliente;
 let servicio;
 let fecha;
 
@@ -8,7 +8,6 @@ const {
   createFlow,
   addKeyword,
   addAnswer,
-  addAction,
 } = require("@bot-whatsapp/bot");
 
 const fs = require("fs")
@@ -102,13 +101,13 @@ const flowCita = addKeyword(["2", "dos", "cita"])
           "_Luis Ramirez_",
         ]);
       } else {
-        nombreCliente = ctx.body;
-        console.log(nombreCliente);
+        global.nombreCliente = ctx.body;
+        console.log(global.nombreCliente);
       }
     },
     [flowCancelar]
   )
-  .addAnswer(`Genial, entonces tu nombre es ${nombreCliente}`)
+  .addAnswer(`Genial, entonces tu nombre es ${global.nombreCliente}`)
   .addAnswer(
     "Ahora necesito que me indiques el servicio que necesitas",
     { capture: true },
@@ -140,7 +139,7 @@ const flowCita = addKeyword(["2", "dos", "cita"])
   )
   .addAnswer([
     "Todo listo! El detalle de tu reservacion es la siguiente:",
-    `\nNombre: ${nombreCliente}`,
+    `\nNombre: ${global.nombreCliente}`,
     `\nServicio: ${servicio}`,
     `\nFecha ideal: ${fecha}`,
   ])
@@ -220,25 +219,6 @@ const flowPrincipal = addKeyword([
     },
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
   );
-
-/*const flowSiguiente = addKeyword("ok").addAnswer(`Nombre: ${name}`)
-
-const flowPrueba = addKeyword("test").addAnswer("Nombre", {capture: true}, 
-(ctx, {fallBack}) => {
-  if(ctx.body != "Gerardo"){
-    fallBack("Por favor ingrese correctamente su nombre")
-  } else {
-    console.log(ctx.body)
-  }
-
-  modifName(ctx.body);
-}).addAnswer(`Entonces tu nombre es ${name}`, null, null, [flowSiguiente])
-
-const modifName = (n) => {
-  name = n;
-  console.log("Variable Modificada:" + name)
-} 
-*/
 
 const main = async () => {
   const adapterDB = new MockAdapter();
