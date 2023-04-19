@@ -17,6 +17,8 @@ fetch("/resources/servicios/dataServicios.json")
       //Agregamos atributo
       celdaNombre.setAttribute("scope", "row");
       celdaNombre.style.whiteSpace = "pre-line";
+      celdaNombre.style.textTransform = "none";
+      celdaNombre.style.fontWeight = "normal";
 
       /*Declarando celdaImagen y dandole propiedades
       var celdaImagen = document.createElement("td");
