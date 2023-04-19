@@ -17,13 +17,15 @@ fetch("/resources/servicios/dataServicios.json")
       //Agregamos atributo
       celdaNombre.setAttribute("scope", "row");
       celdaNombre.style.whiteSpace = "pre-line";
-      //Declarando celdaImagen y dandole propiedades
+
+      /*Declarando celdaImagen y dandole propiedades
       var celdaImagen = document.createElement("td");
       var imagen = document.createElement("img");
       imagen.src = laceadoData.Laceado[i].imagen;
       imagen.style.height = "10em";
       imagen.style.maxWidth = "10em";
-      celdaImagen.appendChild(imagen);
+      celdaImagen.appendChild(imagen);*/
+
       //Declaro mis botones
       var celdaBtnEditar = document.createElement("td");
       var frmBtnEditar = document.createElement("form");
@@ -66,7 +68,7 @@ fetch("/resources/servicios/dataServicios.json")
       celdaBtnEliminar.appendChild(frmBtnEliminar);
 
       fila.appendChild(celdaNombre);
-      fila.appendChild(celdaImagen);
+      //fila.appendChild(celdaImagen);
       fila.appendChild(celdaBtnEditar);
       fila.appendChild(celdaBtnEliminar);
       laceadoTableBody.appendChild(fila);
