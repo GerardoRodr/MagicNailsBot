@@ -15,7 +15,7 @@ const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
-//const arrSi = ["si", "is", "sí", "so"];
+
 
 const flowNegativa = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
@@ -156,14 +156,13 @@ const flowServicios = addKeyword([
 ])
   .addAnswer([
     "Genial! Nuestros servicios son los siguientes:",
-    "- LACEADO",
-    "- MECHAS",
-    "- MANICURE",
-    "- MAQUILLAJE",
-    "- PESTAÑAS Y CEJAS",
-    "- PEDICURE",
-    "- LIMPIEZA FACIAL",
-    "- DEPILACIONES",
+    "\n_1️⃣ ALISADOS_",
+    "\n_2️⃣ MECHAS_",
+    "\n_3️⃣ MANICURE_",
+    "\n_4️⃣ MAQUILLAJE_",
+    "\n_5️⃣ PEDICURE_",
+    "\n_6️⃣ DEPILACIONES_",
+    "\n_7️⃣ LIMPIEZA FACIAL_",
   ])
   .addAnswer("Si desea ver el detalle de algun servicio escriba el numero correspondiente",
     null,

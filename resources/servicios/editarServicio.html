@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar servicio</title>
+    <link rel="stylesheet" href="/resources/libs/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body onload="cargarDatos()">
+    <div class="my-5 d-flex justify-content-center align-items-center">
+      <div class="col-md-5 p-5 shadow-sm bg-white">
+        <div class="container">
+          <h1>Editar Mensaje</h1>
+          <form
+            method="post"
+            action="#"
+            enctype="multipart/form-data"
+          >
+            <input name="idLaceado" type="hidden" id="id">
+            <div class="mb-3">
+              <label for="txtMensaje" class="form-label">Mensaje</label>
+              <textarea id="txtMensaje" name="nombre" class="form-control border border-primary" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="inputImg" class="form-label">Imagen</label>
+              <img src=""
+              class="mb-3 form-control"
+              style="max-height: 15em; max-width: 15em;"
+              id="actualImg" alt="">
+              <input
+                type="file"
+                name="img"
+                class="form-control border border-primary"
+                id="inputImg"
+              />
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary" type="submit">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/resources/servicios/js/editarServicio.js"></script>
+</html>
