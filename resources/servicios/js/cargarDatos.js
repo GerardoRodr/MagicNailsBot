@@ -13,7 +13,7 @@ fetch("/resources/servicios/dataServicios.json")
       //Creamos el elemento th
       var celdaNombre = document.createElement("th");
       //Se le agrega el contenido a la etiqueta <th>
-      celdaNombre.textContent = laceadoData.Laceado[i].texto;
+      celdaNombre.textContent = laceadoData.Laceado[i].mensaje;
       //Agregamos atributo
       celdaNombre.setAttribute("scope", "row");
       celdaNombre.style.whiteSpace = "pre-line";

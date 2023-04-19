@@ -11,7 +11,7 @@ function cargarDatos() {
     .then((response) => response.json())
     .then((laceadoData) => {
       console.log(laceadoData.Laceado[idBuscado].imagen);
-      txtMensaje.value = laceadoData.Laceado[idBuscado].texto;
+      txtMensaje.value = laceadoData.Laceado[idBuscado].mensaje;
       actualImg.src = laceadoData.Laceado[idBuscado].imagen;
       id.value = idBuscado
     })

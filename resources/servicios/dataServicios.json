@@ -1,12 +1,10 @@
 {
   "Laceado": [
     {
-      "texto": "▬ PRECIOS desde: \n◆ S/. 69.oo Brasilero ESPECIAL \n◆ S/. 150.oo Brasilero SUPERIOR \n◆ S/. 150.oo ORGANICO \n◆ S/. 150.oo MARROQUI\n◆ S/. 250.oo DUAL\n◆ S/. 300.oo TRIAL\n◆ S/. 350.oo JAPONES\n◆ S/. 350.oo PREMIUM  \n\n▬ CORTESIAS:\n★ GRATIS \"SECADORA DE CABELLO\"\n★ GRATIS Limpieza facial\n★ GRATIS Hidratación\n★ GRATIS Planchado Cejas \n★ GRATIS Ampolla Capilar\n★ GRATIS Depilación Bozo\n★ GRATIS Manicura \n★ GRATIS Botox exprés \n★ GRATIS Corte  \n                                                                                                                                \nNota:\n*Sí paga con EFECTIVO = 4 CORTESIAS.\n*Sí paga con TARJETA = 1 CORTESIA.\n*La secadora es válida para laceados que superen los 350 soles.\n*La cortesía de productos post-alisado aplica solo con el laceado Premium y se escoge 1 de 2.\n*EL ALISADO que es desde los 69, SOLO PARA PAGOS EN EFECTIVO y lleva UNA cortesía.\n\nSituaciones relacionadas con ALISADOS\nEstoy embarazada o dando de lactar, ¿puedo hacerme un alisado?\nNo es recomendable realizarse algún tipo de alisados cuando está embarazada o está dando de lactar. En su reemplazo se puede realizar algún tipo de tratamiento capilar para darle fuerza, brillo y bajar el frizz a su cabello.",
-      "imagen": "/resources/servicios/imgs/Laceado/BrasileroEsp.jpg"
+      "mensaje": "▬ PRECIOS desde: \n◆ S/. 69.oo Brasilero ESPECIAL \n◆ S/. 150.oo Brasilero SUPERIOR \n◆ S/. 150.oo ORGANICO \n◆ S/. 150.oo MARROQUI\n◆ S/. 250.oo DUAL\n◆ S/. 300.oo TRIAL\n◆ S/. 350.oo JAPONES\n◆ S/. 350.oo PREMIUM  \n\n▬ CORTESIAS:\n★ GRATIS \"SECADORA DE CABELLO\"\n★ GRATIS Limpieza facial\n★ GRATIS Hidratación\n★ GRATIS Planchado Cejas \n★ GRATIS Ampolla Capilar\n★ GRATIS Depilación Bozo\n★ GRATIS Manicura \n★ GRATIS Botox exprés \n★ GRATIS Corte  \n                                                                                                                                \nNota:\n*Sí paga con EFECTIVO = 4 CORTESIAS.\n*Sí paga con TARJETA = 1 CORTESIA.\n*La secadora es válida para laceados que superen los 350 soles.\n*La cortesía de productos post-alisado aplica solo con el laceado Premium y se escoge 1 de 2.\n*EL ALISADO que es desde los 69, SOLO PARA PAGOS EN EFECTIVO y lleva UNA cortesía.\n\nSituaciones relacionadas con ALISADOS\nEstoy embarazada o dando de lactar, ¿puedo hacerme un alisado?\nNo es recomendable realizarse algún tipo de alisados cuando está embarazada o está dando de lactar. En su reemplazo se puede realizar algún tipo de tratamiento capilar para darle fuerza, brillo y bajar el frizz a su cabello."
     },
     {
-      "texto": "Brasilero Superior",
-      "imagen": "/resources/servicios/imgs/Laceado/brasileroSuperior.jpg"
+      "mensaje": "Brasilero Superior"
     }
   ],
   "Mechas": [
