@@ -6,19 +6,34 @@ fetch("/resources/servicios/dataServicios.json")
     console.log(laceadoData.Laceado.length);
     // Iterar sobre los datos del objeto Laceado y construir las filas de la tabla
     for (var i = 0; i < laceadoData.Laceado.length; i++) {
+      let msg = laceadoData.Laceado[i].mensaje
       //Creamos el elemento tr
       var fila = document.createElement("tr");
       //Agregamos la clase que le da estilo por bootstrap
       fila.classList.add("table-secondary");
       //Creamos el elemento th
-      var celdaNombre = document.createElement("th");
-      //Se le agrega el contenido a la etiqueta <th>
-      celdaNombre.textContent = laceadoData.Laceado[i].mensaje;
+      var celdaMensaje = document.createElement("th");
+
+      //VALIDAMOS SI EL MENSAJE ES UN TEXTO O LA RUTA DE UNA IMAGEN
+      if(typeof msg === 'string') {
+        if(msg.match(/\.(jpeg|jpg|gif|png)$/) != null) {
+          var imagen = document.createElement("img");
+          imagen.src = msg;
+          imagen.style.maxheight = "20em";
+          imagen.style.maxWidth = "20em";
+          celdaMensaje.appendChild(imagen)
+        } else {
+          //Se le agrega el contenido a la etiqueta <th>
+          celdaMensaje.textContent = laceadoData.Laceado[i].mensaje;
+        }
+      } else {
+        console.log('El campo "mensaje" no contiene una cadena de texto.');
+      }
       //Agregamos atributo
-      celdaNombre.setAttribute("scope", "row");
-      celdaNombre.style.whiteSpace = "pre-line";
-      celdaNombre.style.textTransform = "none";
-      celdaNombre.style.fontWeight = "normal";
+      celdaMensaje.setAttribute("scope", "row");
+      celdaMensaje.style.whiteSpace = "pre-line";
+      celdaMensaje.style.textTransform = "none";
+      celdaMensaje.style.fontWeight = "normal";
 
       /*Declarando celdaImagen y dandole propiedades
       var celdaImagen = document.createElement("td");
@@ -32,7 +47,7 @@ fetch("/resources/servicios/dataServicios.json")
       var celdaBtnEditar = document.createElement("td");
       var frmBtnEditar = document.createElement("form");
       frmBtnEditar.setAttribute("method", "get");
-      frmBtnEditar.setAttribute("action", "/servicios/editarServicio");
+      frmBtnEditar.setAttribute("action", "/servicios/editarMensaje");
       var inptFrmBtnEditar = document.createElement("input");
       inptFrmBtnEditar.type = "hidden";
       inptFrmBtnEditar.value = i;
@@ -69,7 +84,7 @@ fetch("/resources/servicios/dataServicios.json")
       frmBtnEliminar.appendChild(btnEliminar);
       celdaBtnEliminar.appendChild(frmBtnEliminar);
 
-      fila.appendChild(celdaNombre);
+      fila.appendChild(celdaMensaje);
       //fila.appendChild(celdaImagen);
       fila.appendChild(celdaBtnEditar);
       fila.appendChild(celdaBtnEliminar);
