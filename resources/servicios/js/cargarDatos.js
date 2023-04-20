@@ -1,3 +1,10 @@
+// Obtener la URL actual
+const url = window.location.pathname;
+// Dividir la URL en un array utilizando el carácter "/" como separador
+const urlArray = url.split('/');
+// Obtener el último elemento del array, que sería "laceado"
+const idServicio = urlArray[urlArray.length - 1];
+
 // Cargar los datos del archivo JSON externo
 fetch("/resources/servicios/dataServicios.json")
   .then((response) => response.json())
@@ -43,7 +50,7 @@ fetch("/resources/servicios/dataServicios.json")
       imagen.style.maxWidth = "10em";
       celdaImagen.appendChild(imagen);*/
 
-      //Declaro mis botones
+      //Declaro botones
       var celdaBtnEditar = document.createElement("td");
       var frmBtnEditar = document.createElement("form");
       frmBtnEditar.setAttribute("method", "get");
@@ -52,6 +59,10 @@ fetch("/resources/servicios/dataServicios.json")
       inptFrmBtnEditar.type = "hidden";
       inptFrmBtnEditar.value = i;
       inptFrmBtnEditar.name = "idLaceado";
+      var inpt2FrmBtnEditar = document.createElement("input");
+      inpt2FrmBtnEditar.type = "hidden";
+      inpt2FrmBtnEditar.value = idServicio;
+      inpt2FrmBtnEditar.name = "idServicio";
       var btnEditar = document.createElement("button");
       btnEditar.classList.add("btn");
       btnEditar.classList.add("btn-primary");
@@ -61,6 +72,7 @@ fetch("/resources/servicios/dataServicios.json")
       iconEditar.classList.add("fa-pencil-square-o");
       btnEditar.appendChild(iconEditar);
       frmBtnEditar.appendChild(inptFrmBtnEditar);
+      frmBtnEditar.appendChild(inpt2FrmBtnEditar)
       frmBtnEditar.appendChild(btnEditar);
       celdaBtnEditar.appendChild(frmBtnEditar);
 
@@ -85,7 +97,6 @@ fetch("/resources/servicios/dataServicios.json")
       celdaBtnEliminar.appendChild(frmBtnEliminar);
 
       fila.appendChild(celdaMensaje);
-      //fila.appendChild(celdaImagen);
       fila.appendChild(celdaBtnEditar);
       fila.appendChild(celdaBtnEliminar);
       laceadoTableBody.appendChild(fila);
