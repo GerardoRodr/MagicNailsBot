@@ -84,6 +84,7 @@ fetch("/resources/servicios/dataServicios.json")
       btnEliminar.classList.add("btn");
       btnEliminar.classList.add("btn-danger");
       btnEliminar.type = "submit";
+      //FUNCION DE CONFIRMACION PARA ELIMINAR
       btnEliminar.onclick = function() {
         return confirm('¿Estás seguro de que deseas eliminar este dato?');
       }
