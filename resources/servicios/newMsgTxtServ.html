@@ -16,14 +16,17 @@
       <div class="my-5 col-md-5 shadow-sm bg-white w-100">
         <div class="container">
           <h1>Nuevo Mensaje</h1>
-          <form
-            method="post"
-            action="/nuevoMensaje"
-          >
-            <input name="tipoServicio" type="hidden" id="tipoServicio">
+          <form method="post" action="/nuevoMensaje">
+            <input name="tipoServicio" type="hidden" id="tipoServicio" />
             <div class="mb-3">
               <label for="txtMensaje" class="form-label">Mensaje</label>
-              <textarea id="txtMensaje" name="msg" class="form-control border border-primary" rows="20" required></textarea>
+              <textarea
+                id="txtMensaje"
+                name="msg"
+                class="form-control border border-primary"
+                rows="20"
+                required
+              ></textarea>
             </div>
             <div class="d-grid">
               <button class="btn btn-primary" type="submit">Registrar</button>
@@ -34,18 +37,13 @@
     </div>
   </body>
   <script>
-    const idServicio = document.getElementById("tipoServicio")
-
+    const idServicio = document.getElementById("tipoServicio");
     // Obtener la cadena de consulta de la URL actual
     const queryString = window.location.search;
-
     // Crear un objeto URLSearchParams a partir de la cadena de consulta
     const params = new URLSearchParams(queryString);
-
     // Leer el valor del parámetro "ref"
-    const ref = params.get('ref');
-    
-    idServicio.value = ref
-    
+    const ref = params.get("ref");
+    idServicio.value = ref;
   </script>
 </html>

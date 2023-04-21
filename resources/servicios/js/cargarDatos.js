@@ -70,21 +70,29 @@ fetch("/resources/servicios/dataServicios.json")
 
       var celdaBtnEliminar = document.createElement("td"); // Crear una celda para el botón de eliminación
       var frmBtnEliminar = document.createElement("form");
-      frmBtnEliminar.setAttribute("method", "get");
-      frmBtnEliminar.setAttribute("action", "#");
+      frmBtnEliminar.setAttribute("method", "post");
+      frmBtnEliminar.setAttribute("action", "/eliminarMensaje");
       var inptFrmBtnEliminar = document.createElement("input");
       inptFrmBtnEliminar.type = "hidden";
       inptFrmBtnEliminar.value = i;
-      inptFrmBtnEliminar.name = "idLaceado";
+      inptFrmBtnEliminar.name = "idMensaje";
+      var inpt2FrmBtnEliminar = document.createElement("input");
+      inpt2FrmBtnEliminar.type = "hidden";
+      inpt2FrmBtnEliminar.value = idServicio;
+      inpt2FrmBtnEliminar.name = "idServicio";
       var btnEliminar = document.createElement("button");
       btnEliminar.classList.add("btn");
-      btnEliminar.classList.add("btn-danger"); // Cambiar la clase para que sea un botón de eliminación rojo
+      btnEliminar.classList.add("btn-danger");
       btnEliminar.type = "submit";
+      btnEliminar.onclick = function() {
+        return confirm('¿Estás seguro de que deseas eliminar este dato?');
+      }
       var iconEliminar = document.createElement("i");
       iconEliminar.classList.add("fa");
-      iconEliminar.classList.add("fa-trash"); // Cambiar el icono para que sea un icono de basura que represente la eliminación
+      iconEliminar.classList.add("fa-trash");
       btnEliminar.appendChild(iconEliminar);
       frmBtnEliminar.appendChild(inptFrmBtnEliminar);
+      frmBtnEliminar.appendChild(inpt2FrmBtnEliminar)
       frmBtnEliminar.appendChild(btnEliminar);
       celdaBtnEliminar.appendChild(frmBtnEliminar);
 
