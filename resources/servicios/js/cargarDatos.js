@@ -10,10 +10,10 @@ fetch("/resources/servicios/dataServicios.json")
   .then((response) => response.json())
   .then((laceadoData) => {
     var laceadoTableBody = document.getElementById("laceadoTableBody");
-    console.log(laceadoData.Laceado.length);
-    // Iterar sobre los datos del objeto Laceado y construir las filas de la tabla
-    for (var i = 0; i < laceadoData.Laceado.length; i++) {
-      let msg = laceadoData.Laceado[i].mensaje
+    console.log(laceadoData.alisado.length);
+    // Iterar sobre los datos del objeto alisado y construir las filas de la tabla
+    for (var i = 0; i < laceadoData.alisado.length; i++) {
+      let msg = laceadoData.alisado[i].mensaje
       //Creamos el elemento tr
       var fila = document.createElement("tr");
       //Agregamos la clase que le da estilo por bootstrap
@@ -31,7 +31,7 @@ fetch("/resources/servicios/dataServicios.json")
           celdaMensaje.appendChild(imagen)
         } else {
           //Se le agrega el contenido a la etiqueta <th>
-          celdaMensaje.textContent = laceadoData.Laceado[i].mensaje;
+          celdaMensaje.textContent = laceadoData.alisado[i].mensaje;
         }
       } else {
         console.log('El campo "mensaje" no contiene una cadena de texto.');
@@ -42,14 +42,6 @@ fetch("/resources/servicios/dataServicios.json")
       celdaMensaje.style.textTransform = "none";
       celdaMensaje.style.fontWeight = "normal";
 
-      /*Declarando celdaImagen y dandole propiedades
-      var celdaImagen = document.createElement("td");
-      var imagen = document.createElement("img");
-      imagen.src = laceadoData.Laceado[i].imagen;
-      imagen.style.height = "10em";
-      imagen.style.maxWidth = "10em";
-      celdaImagen.appendChild(imagen);*/
-
       //Declaro botones
       var celdaBtnEditar = document.createElement("td");
       var frmBtnEditar = document.createElement("form");
@@ -58,7 +50,7 @@ fetch("/resources/servicios/dataServicios.json")
       var inptFrmBtnEditar = document.createElement("input");
       inptFrmBtnEditar.type = "hidden";
       inptFrmBtnEditar.value = i;
-      inptFrmBtnEditar.name = "idLaceado";
+      inptFrmBtnEditar.name = "idMensaje";
       var inpt2FrmBtnEditar = document.createElement("input");
       inpt2FrmBtnEditar.type = "hidden";
       inpt2FrmBtnEditar.value = idServicio;

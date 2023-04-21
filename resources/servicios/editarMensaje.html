@@ -15,16 +15,16 @@
     <div class="d-flex justify-content-center align-items-center">
       <div class="my-5 col-md-5 shadow-sm bg-white w-100">
         <div class="container">
-          <h1>Editar Mensaje</h1>
+          <h1>Editar Mensaje <p id="pServicio"></p></h1>
           <form
             method="post"
-            action="#"
-            enctype="multipart/form-data"
+            action="/editarMensaje"
           >
-            <input name="idLaceado" type="hidden" id="id">
+            <input name="idMensaje" type="hidden" id="idMensaje">
+            <input name="idServicio" type="hidden" id="idServicio">
             <div class="mb-3">
               <label for="txtMensaje" class="form-label">Mensaje</label>
-              <textarea id="txtMensaje" name="nombre" class="form-control border border-primary" rows="20" required></textarea>
+              <textarea id="txtMensaje" name="mensaje" class="form-control border border-primary" rows="20" required></textarea>
             </div>
             <!--
             <div class="mb-3">

@@ -20,7 +20,7 @@
             method="post"
             action="/nuevoMensaje"
           >
-            <input name="tipoServicio" value="1" type="hidden" id="tipoServicio">
+            <input name="tipoServicio" type="hidden" id="tipoServicio">
             <div class="mb-3">
               <label for="txtMensaje" class="form-label">Mensaje</label>
               <textarea id="txtMensaje" name="msg" class="form-control border border-primary" rows="20" required></textarea>
@@ -33,4 +33,19 @@
       </div>
     </div>
   </body>
+  <script>
+    const idServicio = document.getElementById("tipoServicio")
+
+    // Obtener la cadena de consulta de la URL actual
+    const queryString = window.location.search;
+
+    // Crear un objeto URLSearchParams a partir de la cadena de consulta
+    const params = new URLSearchParams(queryString);
+
+    // Leer el valor del parámetro "ref"
+    const ref = params.get('ref');
+    
+    idServicio.value = ref
+    
+  </script>
 </html>
