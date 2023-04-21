@@ -227,6 +227,9 @@ const main = async () => {
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
+  },
+  {
+    blackList: ['51920276971', '51969137630', '51949766584'],
   });
 
   QRPortalWeb();
