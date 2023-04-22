@@ -11,17 +11,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
-  <body onload="cargarDatos()">
+  <body>
     <div class="d-flex justify-content-center align-items-center">
       <div class="my-5 col-md-5 shadow-sm bg-white w-100">
         <div class="container">
           <h1>Nuevo Mensaje (Imagen)</h1>
           <form
+            id="formImg"
             method="post"
             action="/subirImagenServicios"
             enctype="multipart/form-data"
           >
-            <input name="idLaceado" type="hidden" id="id">
+            <input name="tipoServicio" type="hidden" id="tipoServicio">
             <div class="mb-3">
               <label for="inputImg" class="form-label">Imagen</label>
               <input
@@ -39,4 +40,18 @@
       </div>
     </div>
   </body>
+  <script>
+    const idServicio = document.getElementById("tipoServicio");
+    // Obtener la cadena de consulta de la URL actual
+    const queryString = window.location.search;
+    // Crear un objeto URLSearchParams a partir de la cadena de consulta
+    const params = new URLSearchParams(queryString);
+    // Leer el valor del parámetro "ref"
+    const ref = params.get("ref");
+    idServicio.value = ref;
+
+    const formulario = document.getElementById("formImg")
+    formulario.action = "/subirImagenServicios?tipoServicio=" + ref
+
+  </script>
 </html>
