@@ -2,10 +2,10 @@
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: 'DB8995EF8ED1BA8797FFDA4DAA8DC155',
+    id: '68EF006E9863420D590A8068D274BCFB',
     participant: undefined
   },
-  messageTimestamp: 1682203845,
+  messageTimestamp: 1682204110,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
     conversation: 'Hola',
@@ -22,10 +22,90 @@
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '9C3369ACF8E6CD58723DE8B459E19CFE',
+    id: 'BEEA2E1EF8CD0FD643AD5E943A1C17F9',
     participant: undefined
   },
-  messageTimestamp: 1682203849,
+  messageTimestamp: 1682204113,
+  pushName: 'Parrilladas Rodriguez',
+  message: Message {
+    conversation: '5',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Parrilladas Rodriguez',
+  body: '5',
+  from: '51996622623'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51996622623@s.whatsapp.net',
+    fromMe: false,
+    id: 'FA7CDF3C29AC83DB641D3EEA8EBB9C5E',
+    participant: undefined
+  },
+  messageTimestamp: 1682204133,
+  pushName: 'Parrilladas Rodriguez',
+  message: Message {
+    conversation: '0',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Parrilladas Rodriguez',
+  body: '0',
+  from: '51996622623'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51996622623@s.whatsapp.net',
+    fromMe: false,
+    id: '2CCC4B2C8E6223F1625FFA2081D2C101',
+    participant: undefined
+  },
+  messageTimestamp: 1682204135,
+  pushName: 'Parrilladas Rodriguez',
+  message: Message {
+    conversation: '5',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Parrilladas Rodriguez',
+  body: '5',
+  from: '51996622623'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51996622623@s.whatsapp.net',
+    fromMe: false,
+    id: '791BB47E72BF8F49E2E71092F8766044',
+    participant: undefined
+  },
+  messageTimestamp: 1682204138,
+  pushName: 'Parrilladas Rodriguez',
+  message: Message {
+    conversation: '0',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  verifiedBizName: 'Parrilladas Rodriguez',
+  body: '0',
+  from: '51996622623'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51996622623@s.whatsapp.net',
+    fromMe: false,
+    id: 'BB31725050D872EC19165BFB4D16C45E',
+    participant: undefined
+  },
+  messageTimestamp: 1682204139,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
     conversation: '5',
