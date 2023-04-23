@@ -27,7 +27,7 @@ const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
 const flowPromociones = addKeyword(["4", "promos", "promociones", "prom"])
 .addAnswer("Tenemos las siguientes promociones:", null, async (_, {flowDynamic}) => {
 
-  return await flowDynamic([{body:"hola"}, {body: "SI", media:"./resources/servicios/imgs/brasileroSuperior.jpg",}])
+  return await flowDynamic([{body:"hola"}, {body: " ", media:"./resources/servicios/imgs/alisado/brasileroSuperior.jpg",}])
 });
 
 const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "queda"]).addAnswer(
