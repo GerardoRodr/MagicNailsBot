@@ -1,57 +1,19 @@
 [handleMsg]:  {
   key: {
-    remoteJid: '51950832773@s.whatsapp.net',
+    remoteJid: '51920276971@s.whatsapp.net',
     fromMe: false,
-    id: '26BED2EF47416CAEE3F8660D7AE32487',
+    id: '6069C8DABA745949F1959C35F101DCE1',
     participant: undefined
   },
-  messageTimestamp: 1682211196,
-  pushName: 'Magaly R.M.',
+  messageTimestamp: 1682274611,
+  pushName: 'Albert :)',
   message: Message {
-    conversation: 'Hola',
+    conversation: 'https://vm.tiktok.com/ZMYch81Nv/',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Hola',
-  from: '51950832773'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51950832773@s.whatsapp.net',
-    fromMe: false,
-    id: '70B28B4EE04FBC0CBE10E5A232C48409',
-    participant: undefined
-  },
-  messageTimestamp: 1682211199,
-  pushName: 'Magaly R.M.',
-  message: Message {
-    conversation: '1',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '1',
-  from: '51950832773'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51950832773@s.whatsapp.net',
-    fromMe: false,
-    id: '1FEE951DD19E6E7AE27F1464D9B7EE68',
-    participant: undefined
-  },
-  messageTimestamp: 1682211200,
-  pushName: 'Magaly R.M.',
-  message: Message {
-    conversation: '1',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '1',
-  from: '51950832773'
+  body: 'https://vm.tiktok.com/ZMYch81Nv/',
+  from: '51920276971'
 }

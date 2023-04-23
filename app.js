@@ -207,7 +207,7 @@ const main = async () => {
   },
   //El bot no actuara con los numeros especificados en la blacklist
   {
-    blackList: ['51920276971', '51969137630', '51949766584'],
+    blackList: ['51920276971', '51969137630', '51949766584', '51933819460'],
   });
 
   QRPortalWeb();

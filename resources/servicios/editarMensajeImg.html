@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar servicio</title>
+    <link rel="icon" type="image/x-icon" href="/resources/favicon.ico">
+    <link rel="stylesheet" href="/resources/libs/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body onload="cargarDatosImg()">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="my-5 col-md-5 shadow-sm bg-white w-100">
+        <div class="container">
+          <h1>Editar Mensaje con Imagen<p id="pServicio"></p></h1>
+          <form
+            method="post"
+            action="/editarMensajeImg"
+            id="formImg"
+            enctype="multipart/form-data"
+          >
+            <input name="idMensaje" type="hidden" id="idMensaje">
+            <input name="idServicio" type="hidden" id="idServicio">
+            <div class="mb-3">
+              <label for="actualImg" class="form-label">Imagen actual:</label>
+              <img src=""
+              class="mb-3 form-control"
+              style="max-height: 20em; max-width: 20em;"
+              id="actualImg" alt="">
+              <label for="inputImg" class="form-label">Reemplazar imagen:</label>
+              <input
+                type="file"
+                name="img"
+                class="form-control border border-primary"
+                id="inputImg"
+                required
+              />
+            </div>
+            <div class="d-grid">
+              <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/resources/servicios/js/editarMensaje.js"></script>
+</html>

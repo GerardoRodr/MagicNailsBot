@@ -2,18 +2,23 @@
 const url = window.location.pathname;
 // Dividir la URL en un array utilizando el carácter "/" como separador
 const urlArray = url.split('/');
-// Obtener el último elemento del array, que sería "laceado"
+// Obtener el último elemento del array, que sería "alisado"
 const idServicio = urlArray[urlArray.length - 1];
+
+const categoria = urlArray[urlArray.length - 2]
+
+console.log(idServicio)
 
 // Cargar los datos del archivo JSON externo
 fetch("/resources/servicios/dataServicios.json")
   .then((response) => response.json())
-  .then((laceadoData) => {
+  .then((data) => {
     var laceadoTableBody = document.getElementById("laceadoTableBody");
-    console.log(laceadoData.alisado.length);
+    console.log(data[idServicio].length);
     // Iterar sobre los datos del objeto alisado y construir las filas de la tabla
-    for (var i = 0; i < laceadoData.alisado.length; i++) {
-      let msg = laceadoData.alisado[i].mensaje
+    for (var i = 0; i < data[idServicio].length; i++) {
+      let msg = data[idServicio][i].mensaje
+      let isImg = false;
       //Creamos el elemento tr
       var fila = document.createElement("tr");
       //Agregamos la clase que le da estilo por bootstrap
@@ -29,9 +34,10 @@ fetch("/resources/servicios/dataServicios.json")
           imagen.style.maxheight = "20em";
           imagen.style.maxWidth = "20em";
           celdaMensaje.appendChild(imagen)
+          isImg = true
         } else {
           //Se le agrega el contenido a la etiqueta <th>
-          celdaMensaje.textContent = laceadoData.alisado[i].mensaje;
+          celdaMensaje.textContent = data[idServicio][i].mensaje;
         }
       } else {
         console.log('El campo "mensaje" no contiene una cadena de texto.');
@@ -46,7 +52,11 @@ fetch("/resources/servicios/dataServicios.json")
       var celdaBtnEditar = document.createElement("td");
       var frmBtnEditar = document.createElement("form");
       frmBtnEditar.setAttribute("method", "get");
-      frmBtnEditar.setAttribute("action", "/servicios/editarMensaje");
+      if(isImg === true) {
+        frmBtnEditar.setAttribute("action", "/servicios/editarMensajeImg");
+      } else {
+        frmBtnEditar.setAttribute("action", "/servicios/editarMensaje");
+      }
       var inptFrmBtnEditar = document.createElement("input");
       inptFrmBtnEditar.type = "hidden";
       inptFrmBtnEditar.value = i;
