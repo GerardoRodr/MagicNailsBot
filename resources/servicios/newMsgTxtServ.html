@@ -19,7 +19,8 @@
         <div class="container">
           <h1>Nuevo Mensaje</h1>
           <form method="post" action="/nuevoMensaje">
-            <input name="tipoServicio" type="hidden" id="tipoServicio" />
+            <input name="tipoServicio" type="hidden" id="tipoServicio"/>
+            <input name="categoria" type="hidden" id="categoria"/>
             <div class="mb-3">
               <label for="txtMensaje" class="form-label">Mensaje</label>
               <textarea
@@ -39,14 +40,16 @@
     </div>
   </body>
   <script>
-    const idServicio = document.getElementById("tipoServicio");
-    // Obtener la cadena de consulta de la URL actual
-    const queryString = window.location.search;
+    const subCategoria = document.getElementById("tipoServicio");
+    const categoria = document.getElementById("categoria")
     // Crear un objeto URLSearchParams a partir de la cadena de consulta
-    const params = new URLSearchParams(queryString);
+    const params = new URLSearchParams(window.location.search);
     // Leer el valor del parámetro "ref"
     const ref = params.get("ref");
-    idServicio.value = ref;
+    const cat = params.get("categoria")
+    console.log(cat)
+    subCategoria.value = ref;
+    categoria.value = cat;
   </script>
   <script src="/resources/libs/bootstrap.bundle.min.js"></script>
 </html>

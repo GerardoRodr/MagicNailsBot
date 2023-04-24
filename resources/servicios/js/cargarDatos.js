@@ -3,21 +3,21 @@ const url = window.location.pathname;
 // Dividir la URL en un array utilizando el carácter "/" como separador
 const urlArray = url.split('/');
 // Obtener el último elemento del array, que sería "alisado"
-const idServicio = urlArray[urlArray.length - 1];
+const subCategoria = urlArray[urlArray.length - 1];
 
-const categoria = urlArray[urlArray.length - 2]
-
-console.log(idServicio)
+let categoria = urlArray[urlArray.length - 2]
+categoria = categoria.charAt(0).toUpperCase() + categoria.slice(1)
+console.log(categoria)
 
 // Cargar los datos del archivo JSON externo
-fetch("/resources/servicios/dataServicios.json")
+fetch(`/resources/data${categoria}.json`)
   .then((response) => response.json())
   .then((data) => {
     var laceadoTableBody = document.getElementById("laceadoTableBody");
-    console.log(data[idServicio].length);
+    console.log(data[subCategoria].length);
     // Iterar sobre los datos del objeto alisado y construir las filas de la tabla
-    for (var i = 0; i < data[idServicio].length; i++) {
-      let msg = data[idServicio][i].mensaje
+    for (var i = 0; i < data[subCategoria].length; i++) {
+      let msg = data[subCategoria][i].mensaje
       let isImg = false;
       //Creamos el elemento tr
       var fila = document.createElement("tr");
@@ -37,7 +37,7 @@ fetch("/resources/servicios/dataServicios.json")
           isImg = true
         } else {
           //Se le agrega el contenido a la etiqueta <th>
-          celdaMensaje.textContent = data[idServicio][i].mensaje;
+          celdaMensaje.textContent = data[subCategoria][i].mensaje;
         }
       } else {
         console.log('El campo "mensaje" no contiene una cadena de texto.');
@@ -53,9 +53,9 @@ fetch("/resources/servicios/dataServicios.json")
       var frmBtnEditar = document.createElement("form");
       frmBtnEditar.setAttribute("method", "get");
       if(isImg === true) {
-        frmBtnEditar.setAttribute("action", "/servicios/editarMensajeImg");
+        frmBtnEditar.setAttribute("action", "/editarMensajeImg");
       } else {
-        frmBtnEditar.setAttribute("action", "/servicios/editarMensaje");
+        frmBtnEditar.setAttribute("action", "/editarMensaje");
       }
       var inptFrmBtnEditar = document.createElement("input");
       inptFrmBtnEditar.type = "hidden";
@@ -63,8 +63,12 @@ fetch("/resources/servicios/dataServicios.json")
       inptFrmBtnEditar.name = "idMensaje";
       var inpt2FrmBtnEditar = document.createElement("input");
       inpt2FrmBtnEditar.type = "hidden";
-      inpt2FrmBtnEditar.value = idServicio;
-      inpt2FrmBtnEditar.name = "idServicio";
+      inpt2FrmBtnEditar.value = subCategoria;
+      inpt2FrmBtnEditar.name = "subCategoria";
+      var inpt3FrmBtnEditar = document.createElement("input");
+      inpt3FrmBtnEditar.type = "hidden";
+      inpt3FrmBtnEditar.value = categoria;
+      inpt3FrmBtnEditar.name = "categoria";
       var btnEditar = document.createElement("button");
       btnEditar.classList.add("btn");
       btnEditar.classList.add("btn-primary");
@@ -74,7 +78,8 @@ fetch("/resources/servicios/dataServicios.json")
       iconEditar.classList.add("fa-pencil-square-o");
       btnEditar.appendChild(iconEditar);
       frmBtnEditar.appendChild(inptFrmBtnEditar);
-      frmBtnEditar.appendChild(inpt2FrmBtnEditar)
+      frmBtnEditar.appendChild(inpt2FrmBtnEditar);
+      frmBtnEditar.appendChild(inpt3FrmBtnEditar);
       frmBtnEditar.appendChild(btnEditar);
       celdaBtnEditar.appendChild(frmBtnEditar);
 
@@ -88,8 +93,12 @@ fetch("/resources/servicios/dataServicios.json")
       inptFrmBtnEliminar.name = "idMensaje";
       var inpt2FrmBtnEliminar = document.createElement("input");
       inpt2FrmBtnEliminar.type = "hidden";
-      inpt2FrmBtnEliminar.value = idServicio;
-      inpt2FrmBtnEliminar.name = "idServicio";
+      inpt2FrmBtnEliminar.value = subCategoria;
+      inpt2FrmBtnEliminar.name = "subCategoria";
+      var inpt3FrmBtnEliminar = document.createElement("input");
+      inpt3FrmBtnEliminar.type = "hidden";
+      inpt3FrmBtnEliminar.value = categoria;
+      inpt3FrmBtnEliminar.name = "categoria";
       var btnEliminar = document.createElement("button");
       btnEliminar.classList.add("btn");
       btnEliminar.classList.add("btn-danger");
@@ -104,6 +113,7 @@ fetch("/resources/servicios/dataServicios.json")
       btnEliminar.appendChild(iconEliminar);
       frmBtnEliminar.appendChild(inptFrmBtnEliminar);
       frmBtnEliminar.appendChild(inpt2FrmBtnEliminar)
+      frmBtnEliminar.appendChild(inpt3FrmBtnEliminar)
       frmBtnEliminar.appendChild(btnEliminar);
       celdaBtnEliminar.appendChild(frmBtnEliminar);
 

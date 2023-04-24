@@ -93,13 +93,13 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/servicios/nuevoMensajeTexto?ref=mechas">Nuevo mensaje(Texto)</a>
+              <a class="nav-link" href="/nuevoMensajeTexto?ref=mechas&categoria=Servicios">Nuevo mensaje(Texto)</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/servicios/nuevoMensajeImagen?ref=mechas">Nuevo mensaje(Imagen)</a>
+              <a class="nav-link" href="/nuevoMensajeImagen?ref=mechas&categoria=Servicios">Nuevo mensaje(Imagen)</a>
             </li>
             <li class="nav-item">
-              <form method="post" action="/eliminarMensajesTodo?tipoServicio=mechas">
+              <form method="post" action="/eliminarMensajesTodo?tipoServicio=mechas&categoria=Servicios">
                 <a class="nav-link text-danger" href="#" onclick="event.preventDefault(); if(confirm('¿Estás segur@ que deseas eliminar todos los mensajes?')) this.closest('form').submit();"
                 >Eliminar todos los mensajes
               </a>
