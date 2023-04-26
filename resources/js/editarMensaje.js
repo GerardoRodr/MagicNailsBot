@@ -3,6 +3,7 @@ function cargarDatos() {
   const inputIdMsg = document.getElementById("idMensaje")
   const pServicio = document.getElementById("pServicio")
   const frmIdServicio = document.getElementById("subCategoria")
+  const inputCategoria = document.getElementById("categoria")
 
   // Leer la ID del parámetro en la URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -18,6 +19,7 @@ function cargarDatos() {
       inputIdMsg.value = idMensaje
       pServicio.innerHTML = "(" + subCategoria + ")"
       frmIdServicio.value = subCategoria
+      inputCategoria.value = categoria
     })
     .catch((error) => console.error("Error al cargar los datos:", error));
 };
