@@ -1,0 +1,212 @@
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: 'BCB36C8F22CEFAC4E03C799AE9053688',
+    participant: undefined
+  },
+  messageTimestamp: 1682543154,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    documentMessage: DocumentMessage {
+      url: 'https://mmg.whatsapp.net/v/t62.7119-24/40266689_617300536963333_2165241188734077599_n.enc?ccb=11-4&oh=01_AdRcqvcJzMiWm-InrgVX5Zrfz6kJUmWU0V78Hj_a4C4xgA&oe=6470F21D&mms3=true',
+      mimetype: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      title: 'PRECIOS DE SERVICIOS.docx',
+      fileSha256: [Uint8Array],
+      fileLength: [Long],
+      pageCount: 0,
+      mediaKey: [Uint8Array],
+      fileName: 'PRECIOS DE SERVICIOS.docx',
+      fileEncSha256: [Uint8Array],
+      directPath: '/v/t62.7119-24/40266689_617300536963333_2165241188734077599_n.enc?ccb=11-4&oh=01_AdRcqvcJzMiWm-InrgVX5Zrfz6kJUmWU0V78Hj_a4C4xgA&oe=6470F21D&_nc_hot=1682543154',
+      mediaKeyTimestamp: [Long]
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '_event_document__a9febdb6-2543-43bf-afa8-fb5a312c682b',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: '33BDB3F6238609A33CB156624C60E90E',
+    participant: undefined
+  },
+  messageTimestamp: 1682543158,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'Ese debería de ser el final',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ese debería de ser el final',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: 'A1C130851313E82AA3940B1CE55DDBCA',
+    participant: undefined
+  },
+  messageTimestamp: 1682543162,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'Pero sigue sin dar la aprobación',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Pero sigue sin dar la aprobación',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: 'EAE63B3B2DEDA455664336F00B20F3D9',
+    participant: undefined
+  },
+  messageTimestamp: 1682543169,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'Ta ocupao creo',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Ta ocupao creo',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: '3D998DA3FD37426EE30A8DBA827763F2',
+    participant: undefined
+  },
+  messageTimestamp: 1682543177,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'PQ se viene el anterior del spa',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'PQ se viene el anterior del spa',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: '51AE1B33D8AE28614EBC9CDAF3B54E8F',
+    participant: undefined
+  },
+  messageTimestamp: 1682543185,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    stickerMessage: StickerMessage {
+      url: 'https://mmg.whatsapp.net/v/t62.15575-24/28608119_184723091112299_1270642827666086766_n.enc?ccb=11-4&oh=01_AdRbCCSeSGItccec3b584fOemfHuGY9ctpdRrIjXRbuKgA&oe=64710A99&mms3=true',
+      fileSha256: [Uint8Array],
+      fileEncSha256: [Uint8Array],
+      mediaKey: [Uint8Array],
+      mimetype: 'image/webp',
+      directPath: '/v/t62.15575-24/28608119_184723091112299_1270642827666086766_n.enc?ccb=11-4&oh=01_AdRbCCSeSGItccec3b584fOemfHuGY9ctpdRrIjXRbuKgA&oe=64710A99',
+      fileLength: [Long],
+      mediaKeyTimestamp: [Long],
+      isAnimated: false
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0377F2D0D7D30E0146E',
+    participant: undefined
+  },
+  messageTimestamp: 1682543286,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'pq si se quiere cambiar precios',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'pq si se quiere cambiar precios',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0F5472FC4DF32B985BE',
+    participant: undefined
+  },
+  messageTimestamp: 1682543289,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'normal, no?',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'normal, no?',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB02BEE48324963E21F94',
+    participant: undefined
+  },
+  messageTimestamp: 1682543325,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'chill',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'chill',
+  from: '51949766584'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51949766584@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0697B9478FFA60C7042',
+    participant: undefined
+  },
+  messageTimestamp: 1682543329,
+  pushName: 'Jhosep Abanto',
+  message: Message {
+    conversation: 'entonces usa es info ps',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'entonces usa es info ps',
+  from: '51949766584'
+}
