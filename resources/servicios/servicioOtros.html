@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Servicios: Mechas</title>
+    <title>Servicios: Otros</title>
     <link rel="icon" type="image/x-icon" href="/resources/favicon.ico">
     <link rel="stylesheet" href="/resources/libs/bootstrap.min.css" />
     <link
@@ -45,9 +45,12 @@
                 <a class="dropdown-item" href="/servicios/mechas">Mechas</a>
                 <a class="dropdown-item" href="/servicios/manicure">Manicure</a>
                 <a class="dropdown-item" href="/servicios/maquillaje">Maquillaje</a>
+                <a class="dropdown-item" href="/servicios/cejaspes">Cejas y Pestañas</a>
                 <a class="dropdown-item" href="/servicios/pedicure">Pedicure</a>
                 <a class="dropdown-item" href="/servicios/depilaciones">Depilaciones</a>
                 <a class="dropdown-item" href="/servicios/limpiezafacial">Limpieza facial</a>
+                <a class="dropdown-item" href="/servicios/tratamcapil">Tratamientos Capilares</a>
+                <a class="dropdown-item" href="/servicios/otros">Otros</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -65,9 +68,12 @@
                 <a class="dropdown-item" href="/promociones/mechas">Mechas</a>
                 <a class="dropdown-item" href="/promociones/manicure">Manicure</a>
                 <a class="dropdown-item" href="/promociones/maquillaje">Maquillaje</a>
+                <a class="dropdown-item" href="/promociones/cejaspes">Cejas y Pestañas</a>
                 <a class="dropdown-item" href="/promociones/pedicure">Pedicure</a>
                 <a class="dropdown-item" href="/promociones/depilaciones">Depilaciones</a>
                 <a class="dropdown-item" href="/promociones/limpiezafacial">Limpieza facial</a>
+                <a class="dropdown-item" href="/promociones/tratamcapil">Tratamientos Capilares</a>
+                <a class="dropdown-item" href="/promociones/otros">Otros</a>
               </div>
             </li>
           </ul>
@@ -81,7 +87,7 @@
       class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top py-1 border-top border-dark"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Mechas</a>
+        <a class="navbar-brand" href="#">Otros</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -96,13 +102,13 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/nuevoMensajeTexto?ref=mechas&categoria=Servicios">Nuevo mensaje(Texto)</a>
+              <a class="nav-link" href="/nuevoMensajeTexto?ref=otros&categoria=Servicios">Nuevo mensaje(Texto)</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/nuevoMensajeImagen?ref=mechas&categoria=Servicios">Nuevo mensaje(Imagen)</a>
+              <a class="nav-link" href="/nuevoMensajeImagen?ref=otros&categoria=Servicios">Nuevo mensaje(Imagen)</a>
             </li>
             <li class="nav-item">
-              <form method="post" action="/eliminarMensajesTodo?tipoServicio=mechas&categoria=Servicios">
+              <form method="post" action="/eliminarMensajesTodo?tipoServicio=otros&categoria=Servicios">
                 <a class="nav-link text-danger" href="#" onclick="event.preventDefault(); if(confirm('¿Estás segur@ que deseas eliminar todos los mensajes?')) this.closest('form').submit();"
                 >Eliminar todos los mensajes
               </a>
