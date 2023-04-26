@@ -24,6 +24,7 @@
             enctype="multipart/form-data"
           >
             <input name="tipoServicio" type="hidden" id="tipoServicio">
+            <input name="categoria" type="hidden" id="categoria">
             <div class="mb-3">
               <label for="inputImg" class="form-label">Imagen</label>
               <input
@@ -44,15 +45,18 @@
   </body>
   <script>
     const subCategoria = document.getElementById("tipoServicio");
+    const categoria = document.getElementById("categoria")
     // Obtener la cadena de consulta de la URL actual
     const queryString = window.location.search;
     // Crear un objeto URLSearchParams a partir de la cadena de consulta
     const params = new URLSearchParams(queryString);
     // Leer el valor del parámetro "ref"
     const ref = params.get("ref");
+    const cat = params.get("categoria")
     subCategoria.value = ref;
+    categoria.value = cat;
 
     const formulario = document.getElementById("formImg")
-    formulario.action = "/subirImagenServicios?tipoServicio=" + ref
+    formulario.action = `/subirImagen?tipoServicio=${ref}&categoria=${cat}`
   </script>
 </html>

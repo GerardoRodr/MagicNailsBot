@@ -33,10 +33,10 @@ function cargarDatosImg() {
   const subCategoria = urlParams.get("subCategoria");
   const idMensaje = urlParams.get("idMensaje");
   const categoria = urlParams.get("categoria")
-  console.log(subCategoria)
+  console.log(categoria)
 
   const formulario = document.getElementById("formImg")
-  formulario.action = `/editarMensajeImg?tipoServicio=${subCategoria}&idMensaje=${idMensaje}`
+  formulario.action = `/editarMensajeImg?tipoServicio=${subCategoria}&idMensaje=${idMensaje}&categoria=${categoria}`
   // Cargar los datos del archivo JSON externo
   fetch(`/resources/data${categoria}.json`)
     .then((response) => response.json())
