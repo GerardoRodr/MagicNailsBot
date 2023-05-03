@@ -10,7 +10,9 @@ const {
   addAnswer,
 } = require("@bot-whatsapp/bot");
 
-const {servicioAlisado} = require("./subFlows/sfServicios")
+const {servicioAlisado, servicioMechas, servicioManicure, servicioMaquillaje, 
+      servicioCejaspes, servicioPedicure, servicioDepilaciones,
+      servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros} = require("./subFlows/sfServicios")
 const fs = require("fs")
 const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
@@ -133,18 +135,41 @@ const flowServicios = addKeyword([
 ])
   .addAnswer([
     "Genial! Nuestros servicios son los siguientes:",
-    "\n_1️⃣ ALISADOS_",
-    "\n_2️⃣ MECHAS_",
-    "\n_3️⃣ MANICURE_",
-    "\n_4️⃣ MAQUILLAJE_",
-    "\n_5️⃣ PEDICURE_",
-    "\n_6️⃣ DEPILACIONES_",
-    "\n_7️⃣ LIMPIEZA FACIAL_",
+    "\n_Ⓐ ALISADOS_",
+    "\n_Ⓑ MECHAS_",
+    "\n_Ⓒ MANICURE_",
+    "\n_Ⓓ MAQUILLAJE_",
+    "\n_Ⓔ CEJAS Y PESTAÑAS_",
+    "\n_Ⓕ PEDICURE_",
+    "\n_Ⓖ DEPILACIONES_",
+    "\n_Ⓗ LIMPIEZA FACIAL_",
+    "\n_Ⓘ TRATAMIENTO CAPILARES_",
+    "\n_Ⓙ OTROS_",
+
   ])
   .addAnswer("Si desea ver el detalle de algun servicio escriba el numero correspondiente",
-    null,
-    null,
-    [flowNegativa, servicioAlisado]
+  { capture: true },
+  (ctx, { fallBack }) => {
+    const rsp = ctx.body;
+
+    //11 Opciones
+    const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+
+    let valid = false;
+    for (let i = 0; i < kwValid.length; i++) {
+      if (rsp.includes(kwValid[i])) {
+        valid = true;
+        console.log("RespuestaServicios: ", ctx.body);
+      }
+    }
+
+    if (valid == false) {
+      return fallBack();
+    }
+  },
+  [flowNegativa, servicioAlisado, servicioMechas, servicioManicure, 
+    servicioMaquillaje, servicioCejaspes, servicioPedicure, servicioDepilaciones,
+    servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros]
   );
 
 const flowPrincipal = addKeyword([
@@ -209,7 +234,6 @@ const main = async () => {
   {
     blackList: ['51920276971', '51969137630', '51933819460'],
   });
-
   QRPortalWeb();
 };
 

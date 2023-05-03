@@ -1,7 +1,4 @@
 const {
-    createBot,
-    createProvider,
-    createFlow,
     addKeyword,
     addAnswer,
   } = require("@bot-whatsapp/bot");
@@ -35,7 +32,7 @@ function retMsgs(...messages) {
   return messageObjects;
 }
 
-const servicioAlisado = addKeyword(["1", "alisado", "lisado"])
+const servicioAlisado = addKeyword('a', {sensitive: true,})
 .addAnswer("*Alisado:*", null, async (ctx, {flowDynamic}) => {
     const messages = readMessagesFromFile('./resources/dataServicios.json', 'alisado');
     const messageObjects = retMsgs(...messages)
@@ -48,4 +45,124 @@ const servicioAlisado = addKeyword(["1", "alisado", "lisado"])
   null
 );
 
-module.exports = {servicioAlisado}
+const servicioMechas = addKeyword('b', {sensitive: true,})
+.addAnswer("*Mechas:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'mechas');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioManicure = addKeyword('c', {sensitive: true,})
+.addAnswer("*Manicure:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'manicure');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioMaquillaje = addKeyword('d', {sensitive: true,})
+.addAnswer("*Maquillaje:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'maquillaje');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioCejaspes = addKeyword('e', {sensitive: true,})
+.addAnswer("*Cejas y Pestañas:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'cejaspes');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioPedicure = addKeyword('f', {sensitive: true,})
+.addAnswer("*Pedicure:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'pedicure');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioDepilaciones = addKeyword('g', {sensitive: true,})
+.addAnswer("*Depilaciones:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'depilaciones');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioLimpiezafacial = addKeyword('h', {sensitive: true,})
+.addAnswer("Limpieza Facial:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'limpiezafacial');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioTratamientoCapilar = addKeyword('i', {sensitive: true,})
+.addAnswer("*Tratamiento Capilar:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'tratamcapil');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+const servicioOtros = addKeyword('j', {sensitive: true,})
+.addAnswer("*Otros:*", null, async (ctx, {flowDynamic}) => {
+  const messages = readMessagesFromFile('./resources/dataServicios.json', 'otros');
+  const messageObjects = retMsgs(...messages)
+
+  return flowDynamic(messageObjects)
+})
+.addAnswer(
+"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+null,
+null
+);
+
+module.exports = 
+{servicioAlisado, servicioMechas, servicioManicure, 
+  servicioMaquillaje, servicioCejaspes, servicioPedicure,
+  servicioDepilaciones, servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros}
