@@ -1,16 +1,1 @@
-{
-  "alisado": [{ "mensaje": "TestAlisado" }],
-  "mechas": [{ "mensaje": "TestMechas" }],
-  "manicure": [{ "mensaje": "Test Manicure" }],
-  "maquillaje": [{ "mensaje": "TestMaquillaje" }],
-  "cejaspes": [{ "mensaje": "Test\r\nCejas\r\nY\r\nPestañas" }],
-  "pedicure": [{ "mensaje": "Test Pedicure" }],
-  "depilaciones": [
-    {
-      "mensaje": "▬ PRECIOS:\r\n◆ S/. 45.oo FACIAL (cera fría)\r\n◆ S/. 10.oo CEJAS\r\n◆ S/. 10.oo BOZO\r\n◆ S/. 15.oo PATILLAS\r\n◆ S/. 25.oo NUCA\r\n◆ S/. 20.oo AXILAS\r\n◆ S/. 50.oo BRAZO COMPLETO\r\n◆ S/. 25.oo MEDIO BRAZO\r\n◆ S/. 80.oo ESPALDA COMPLETA\r\n◆ S/. 50.oo ESPALDA BAJA\r\n◆ S/. 100.oo BIKINI\r\n◆ S/. 150.oo BIKINI COMPLETO\r\n◆ S/. 100.oo PIERNA COMPLETA\r\n◆ S/. 50.oo MEDIA PIERNA\r\n\r\nNota:\r\n*En cuanto a la depilación facial, sí está tomando algún medicamento dermatológico para el acné o tiene la piel rosácea, es recomendable que no se depile el rostro.\r\n\r\nGo"
-    }
-  ],
-  "limpiezafacial": [{ "mensaje": "TEST LIMPIEZA FACIAL" }],
-  "tratamcapil": [{ "mensaje": "Test tratamcapil" }],
-  "otros": [{ "mensaje": "TEST OTROS" }]
-}
+{"alisado":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en alisados!"}],"mechas":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en mechas!"}],"manicure":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en manicure!"}],"maquillaje":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en maquillaje!"}],"cejaspes":[{"mensaje":"/resources/promociones/imgs/cejaspes/1683141525178.jpg"}],"pedicure":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en pedicure!"}],"depilaciones":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en depilaciones!"}],"limpiezafacial":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en limpieza facial!"}],"tratamcapil":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en tratamientos capilares!"}],"otros":[{"mensaje":"Lo lamentamos! Por el momento no tenemos promociones disponibles en otros!"}]}

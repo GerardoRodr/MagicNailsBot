@@ -32,7 +32,7 @@ function retMsgs(...messages) {
   return messageObjects;
 }
 
-const servicioAlisado = addKeyword('a')
+const servicioAlisado = addKeyword(['a', 'A'], {sensitive: true,})
 .addAnswer("*Alisado:*", null, async (ctx, {flowDynamic}) => {
     const messages = readMessagesFromFile('./resources/dataServicios.json', 'alisado');
     const messageObjects = retMsgs(...messages)
@@ -45,7 +45,7 @@ const servicioAlisado = addKeyword('a')
   null
 );
 
-const servicioMechas = addKeyword('b')
+const servicioMechas = addKeyword(['b', 'B'], {sensitive: true,})
 .addAnswer("*Mechas:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'mechas');
   const messageObjects = retMsgs(...messages)
@@ -58,7 +58,7 @@ null,
 null
 );
 
-const servicioManicure = addKeyword('c')
+const servicioManicure = addKeyword(['c', 'C'], {sensitive: true,})
 .addAnswer("*Manicure:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'manicure');
   const messageObjects = retMsgs(...messages)
@@ -71,7 +71,7 @@ null,
 null
 );
 
-const servicioMaquillaje = addKeyword('d')
+const servicioMaquillaje = addKeyword(['d', 'D'], {sensitive: true,})
 .addAnswer("*Maquillaje:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'maquillaje');
   const messageObjects = retMsgs(...messages)
@@ -84,7 +84,7 @@ null,
 null
 );
 
-const servicioCejaspes = addKeyword('e')
+const servicioCejaspes = addKeyword(['e', 'E'], {sensitive: true,})
 .addAnswer("*Cejas y Pestañas:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'cejaspes');
   const messageObjects = retMsgs(...messages)
@@ -97,7 +97,7 @@ null,
 null
 );
 
-const servicioPedicure = addKeyword('f')
+const servicioPedicure = addKeyword(['f', 'F'], {sensitive: true,})
 .addAnswer("*Pedicure:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'pedicure');
   const messageObjects = retMsgs(...messages)
@@ -110,7 +110,7 @@ null,
 null
 );
 
-const servicioDepilaciones = addKeyword('g')
+const servicioDepilaciones = addKeyword(['g', 'G'], {sensitive: true,})
 .addAnswer("*Depilaciones:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'depilaciones');
   const messageObjects = retMsgs(...messages)
@@ -123,8 +123,8 @@ null,
 null
 );
 
-const servicioLimpiezafacial = addKeyword('h')
-.addAnswer("Limpieza Facial:*", null, async (ctx, {flowDynamic}) => {
+const servicioLimpiezafacial = addKeyword(['h', 'H'], {sensitive: true,})
+.addAnswer("*Limpieza Facial:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'limpiezafacial');
   const messageObjects = retMsgs(...messages)
 
@@ -136,7 +136,7 @@ null,
 null
 );
 
-const servicioTratamientoCapilar = addKeyword('i')
+const servicioTratamientoCapilar = addKeyword(['i', 'I'], {sensitive: true,})
 .addAnswer("*Tratamiento Capilar:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'tratamcapil');
   const messageObjects = retMsgs(...messages)
@@ -149,7 +149,7 @@ null,
 null
 );
 
-const servicioOtros = addKeyword('j')
+const servicioOtros = addKeyword(['j', 'J'])
 .addAnswer("*Otros:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'otros');
   const messageObjects = retMsgs(...messages)

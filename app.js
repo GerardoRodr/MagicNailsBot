@@ -1,4 +1,4 @@
-global.nombreCliente;
+let nombre;
 let servicio;
 let fecha;
 
@@ -8,6 +8,7 @@ const {
   createFlow,
   addKeyword,
   addAnswer,
+  EVENTS,
 } = require("@bot-whatsapp/bot");
 
 const {servicioAlisado, servicioMechas, servicioManicure, servicioMaquillaje, 
@@ -27,9 +28,8 @@ const flowNegativa = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
 
-const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
-  "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
-);
+const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
+.addAnswer("Muchas gracias a ti 😊")
 
 const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "queda"]).addAnswer(
 [
@@ -44,7 +44,7 @@ const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "qu
 )
 .addAnswer("*Fachada del local*", {media:'./resources/ubicacion/imgs/fachada.jpeg'})
 .addAnswer(
-  "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+  "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
   null,
   null
 );
@@ -52,25 +52,28 @@ const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "qu
 const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
   .addAnswer(["TELEFONO DE CITAS - WSP:", "▬  📞 974322773 📞"])
   .addAnswer(
-    "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+    "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
     null,
     null
   );
 
 const flowCita = addKeyword(["2", "dos", "cita"])
   .addAnswer(
-    "Genial! Recuerda que en caso desees cancelar esta solicitud de cita, simplemente escriba la palabra **Cancelar**",
-    null,
-    null,
-    [flowCancelar]
+    "Genial! Recuerda que en caso desees cancelar esta solicitud de cita, simplemente escriba la palabra **Cancelar**"
   )
   .addAnswer(
     "Por favor dinos tu nombre y apellido",
     { capture: true },
-    (ctx, { fallBack }) => {
+    async (ctx, { fallBack, flowDynamic, endFlow }) => {
+      //Validando si cancelaron la solicitud
+      if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
+        return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
+      }
+
       //Pasando todo a minuscula para una mejor validacion
       const nameRgx =
         /^[A-Za-zÁ-ÿ\u00C0-\u017F']+([\s-][A-Za-zÁ-ÿ\u00C0-\u017F']+)*$/;
+
       //Validamos que se escriba bien el nombre
       if (!nameRgx.test(ctx.body)) {
         fallBack([
@@ -78,51 +81,56 @@ const flowCita = addKeyword(["2", "dos", "cita"])
           "\nEjemplo: ",
           "_Luis Ramirez_",
         ]);
-      } else {
-        global.nombreCliente = ctx.body;
-        console.log(global.nombreCliente);
-      }
-    },
-    [flowCancelar]
+      } 
+
+      nombre = ctx.body;
+      console.log(nombre);
+      return flowDynamic(`Encantado *${nombre}*, continuamos...`)
+    }
   )
-  .addAnswer(`Genial, entonces tu nombre es ${global.nombreCliente}`)
   .addAnswer(
     "Ahora necesito que me indiques el servicio que necesitas",
     { capture: true },
-    async (ctx, { fallBack }) => {
-      let serv = ctx.body;
-      if (serv.length < 3) {
-        fallBack();
-      } else {
-        servicio = ctx.body;
-        console.log(servicio);
+    async (ctx, { fallBack, flowDynamic, endFlow }) => {
+      //Validando si cancelaron la solicitud
+      if (ctx.body == 'Cancelar' || ctx.body == 'cancelar') {
+        return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
       }
-    },
-    [flowCancelar]
+
+      let tempServ = ctx.body
+
+      if (tempServ.length < 3) {
+        return fallBack("Por favor se más especific@");
+      }
+
+      servicio = ctx.body;
+      console.log(`ServicioCita: ${servicio}`);
+    }
   )
   .addAnswer(
     "Por ultimo necesito que me indiques tu fecha ideal y la hora de tu reservacion.",
     { capture: true },
-    async (ctx, { fallBack }) => {
-      let fecha = ctx.body;
-      console.log(fecha.length);
-      if (fecha.length < 3) {
-        fallBack();
-      } else {
-        fecha = ctx.body;
-        console.log(fecha);
+    async (ctx, { fallBack, flowDynamic }) => {
+
+      let tempFecha = ctx.body;
+
+      if (tempFecha.length < 3) {
+        return fallBack("Me parece que no ingresaste bien la fecha, trata de ser más especific@ por favor.");
       }
-    },
-    [flowCancelar]
+
+      fecha = ctx.body;
+      console.log(tempFecha);
+
+      return flowDynamic([
+        `Todo listo! El detalle de tu reservacion es la siguiente:
+        \nNombre: ${nombre}
+        \nServicio: ${servicio}
+        \nFecha ideal: ${fecha}`
+      ])
+    }
   )
-  .addAnswer([
-    "Todo listo! El detalle de tu reservacion es la siguiente:",
-    `\nNombre: ${global.nombreCliente}`,
-    `\nServicio: ${servicio}`,
-    `\nFecha ideal: ${fecha}`,
-  ])
   .addAnswer(
-    "En unos momentos se te comunicara con una asistente real para que puedan consolidar la reservacion 🙌"
+    "En unos momentos te llamará una asistente real para que puedan consolidar la reservacion 🙌"
   );
 
   const flowPromociones = addKeyword([
@@ -146,25 +154,33 @@ const flowCita = addKeyword(["2", "dos", "cita"])
     ])
     .addAnswer("Si desea ver el detalle de alguna promocion escriba la letra correspondiente.",
     { capture: true },
-    (ctx, { fallBack }) => {
+    (ctx, { fallBack, endFlow }) => {
       const rsp = ctx.body;
+
+      //Validando si cancelaron la solicitud
+      if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
+        return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
+      }     
   
       //11 Opciones
-      const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
-  
+      const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
+      "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+
       let valid = false;
       for (let i = 0; i < kwValid.length; i++) {
-        if (rsp.includes(kwValid[i])) {
+        if (rsp === kwValid[i] || rsp === kwValid[i].toUpperCase()) {
           valid = true;
-          console.log("RespuestaServicios: ", ctx.body);
+          console.log(kwValid[i]);
+          console.log(kwValid[i].toUpperCase());
+          console.log("RespuestaServicios: ", rsp);
         }
       }
-  
+
       if (valid == false) {
-        return fallBack();
+        return fallBack("Por favor solo ingrese una letra");
       }
     },
-    [flowNegativa, promoAlisado, promoMechas, promoManicure, 
+    [ promoAlisado, promoMechas, promoManicure, 
       promoMaquillaje, promoCejaspes, promoPedicure, promoDepilaciones,
       promoLimpiezafacial, promoTratamientoCapilar, promoOtros]
     );
@@ -192,41 +208,39 @@ const flowServicios = addKeyword([
   ])
   .addAnswer("Si desea ver el detalle de algun servicio escriba la letra correspondiente",
   { capture: true },
-  (ctx, { fallBack }) => {
+  (ctx, { fallBack, endFlow }) => {
     const rsp = ctx.body;
 
+      //Validando si cancelaron la solicitud
+      if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
+        return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
+      }
+
     //11 Opciones
-    const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+    const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
 
     let valid = false;
     for (let i = 0; i < kwValid.length; i++) {
-      if (rsp.includes(kwValid[i])) {
+      if (rsp === kwValid[i] || rsp === kwValid[i].toUpperCase()) {
         valid = true;
-        console.log("RespuestaServicios: ", ctx.body);
+        console.log(kwValid[i]);
+        console.log(kwValid[i].toUpperCase());
+        console.log("RespuestaServicios: ", rsp);
       }
     }
 
     if (valid == false) {
-      return fallBack();
+      return fallBack("Por favor solo ingrese una letra");
     }
   },
-  [flowNegativa, servicioAlisado, servicioMechas, servicioManicure, 
+  [servicioAlisado, servicioMechas, servicioManicure, 
     servicioMaquillaje, servicioCejaspes, servicioPedicure, servicioDepilaciones,
     servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros]
   );
 
 const flowPrincipal = addKeyword([
-  "hola",
-  "ole",
-  "alo",
-  "buenos",
-  "buenas",
-  "tardes",
-  "noches",
-  "dias",
-  "hi",
-  "hey",
-  "0"
+  EVENTS.WELCOME
 ])
   .addAnswer("🙌 Hola bienvenid@!")
   .addAnswer(
