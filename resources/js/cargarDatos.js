@@ -13,7 +13,7 @@ console.log(categoria)
 fetch(`/resources/data${categoria}.json`)
   .then((response) => response.json())
   .then((data) => {
-    var laceadoTableBody = document.getElementById("laceadoTableBody");
+    var tablaMensajes = document.getElementById("tablaMensajes");
     console.log(data[subCategoria].length);
     // Iterar sobre los datos del objeto alisado y construir las filas de la tabla
     for (var i = 0; i < data[subCategoria].length; i++) {
@@ -120,7 +120,7 @@ fetch(`/resources/data${categoria}.json`)
       fila.appendChild(celdaMensaje);
       fila.appendChild(celdaBtnEditar);
       fila.appendChild(celdaBtnEliminar);
-      laceadoTableBody.appendChild(fila);
+      tablaMensajes.appendChild(fila);
     }
   })
 .catch((error) => console.error("Error al cargar los datos:", error));
