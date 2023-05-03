@@ -32,6 +32,9 @@ function retMsgs(...messages) {
   return messageObjects;
 }
 
+const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
+.addAnswer("Muchas gracias a ti 😊")
+
 const servicioAlisado = addKeyword(['a', 'A'], {sensitive: true,})
 .addAnswer("*Alisado:*", null, async (ctx, {flowDynamic}) => {
     const messages = readMessagesFromFile('./resources/dataServicios.json', 'alisado');
@@ -40,9 +43,10 @@ const servicioAlisado = addKeyword(['a', 'A'], {sensitive: true,})
     return flowDynamic(messageObjects)
 })
 .addAnswer(
-  "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+  "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
   null,
-  null
+  null,
+  [flowGracias]
 );
 
 const servicioMechas = addKeyword(['b', 'B'], {sensitive: true,})
@@ -53,9 +57,10 @@ const servicioMechas = addKeyword(['b', 'B'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioManicure = addKeyword(['c', 'C'], {sensitive: true,})
@@ -66,9 +71,10 @@ const servicioManicure = addKeyword(['c', 'C'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioMaquillaje = addKeyword(['d', 'D'], {sensitive: true,})
@@ -79,9 +85,10 @@ const servicioMaquillaje = addKeyword(['d', 'D'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioCejaspes = addKeyword(['e', 'E'], {sensitive: true,})
@@ -92,9 +99,10 @@ const servicioCejaspes = addKeyword(['e', 'E'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioPedicure = addKeyword(['f', 'F'], {sensitive: true,})
@@ -105,9 +113,10 @@ const servicioPedicure = addKeyword(['f', 'F'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioDepilaciones = addKeyword(['g', 'G'], {sensitive: true,})
@@ -118,9 +127,10 @@ const servicioDepilaciones = addKeyword(['g', 'G'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioLimpiezafacial = addKeyword(['h', 'H'], {sensitive: true,})
@@ -131,9 +141,10 @@ const servicioLimpiezafacial = addKeyword(['h', 'H'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioTratamientoCapilar = addKeyword(['i', 'I'], {sensitive: true,})
@@ -144,9 +155,10 @@ const servicioTratamientoCapilar = addKeyword(['i', 'I'], {sensitive: true,})
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 const servicioOtros = addKeyword(['j', 'J'])
@@ -157,9 +169,10 @@ const servicioOtros = addKeyword(['j', 'J'])
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null
+null,
+[flowGracias]
 );
 
 module.exports = 

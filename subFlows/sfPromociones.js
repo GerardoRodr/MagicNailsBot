@@ -40,7 +40,7 @@ const promoAlisado = addKeyword('a')
     return flowDynamic(messageObjects)
 })
 .addAnswer(
-  "Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+  "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
   null,
   null
 );
@@ -53,7 +53,7 @@ const promoMechas = addKeyword('b')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -66,7 +66,7 @@ const promoManicure = addKeyword('c')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -79,7 +79,7 @@ const promoMaquillaje = addKeyword('d')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -92,7 +92,7 @@ const promoCejaspes = addKeyword('e')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -105,7 +105,7 @@ const promoPedicure = addKeyword('f')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -118,7 +118,7 @@ const promoDepilaciones = addKeyword('g')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -131,7 +131,7 @@ const promoLimpiezafacial = addKeyword('h')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -144,7 +144,7 @@ const promoTratamientoCapilar = addKeyword('i')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );
@@ -157,7 +157,7 @@ const promoOtros = addKeyword('j')
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para consultar otra cosa escriba 0️⃣",
+"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null
 );

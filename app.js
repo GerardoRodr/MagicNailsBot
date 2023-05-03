@@ -19,14 +19,9 @@ const {promoAlisado, promoMechas, promoManicure, promoMaquillaje,
       promoCejaspes, promoPedicure, promoDepilaciones,
       promoLimpiezafacial, promoTratamientoCapilar, promoOtros} = require("./subFlows/sfPromociones")
 
-const fs = require("fs")
 const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
-
-const flowNegativa = addKeyword(["cancelar", "canselar"]).addAnswer(
-  "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
-);
 
 const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
 .addAnswer("Muchas gracias a ti 😊")
@@ -46,7 +41,8 @@ const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "qu
 .addAnswer(
   "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
   null,
-  null
+  null,
+  [flowGracias]
 );
 
 const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
@@ -54,7 +50,8 @@ const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
   .addAnswer(
     "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
     null,
-    null
+    null,
+    [flowGracias]
   );
 
 const flowCita = addKeyword(["2", "dos", "cita"])
@@ -93,7 +90,7 @@ const flowCita = addKeyword(["2", "dos", "cita"])
     { capture: true },
     async (ctx, { fallBack, flowDynamic, endFlow }) => {
       //Validando si cancelaron la solicitud
-      if (ctx.body == 'Cancelar' || ctx.body == 'cancelar') {
+      if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
         return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
       }
 
@@ -111,6 +108,11 @@ const flowCita = addKeyword(["2", "dos", "cita"])
     "Por ultimo necesito que me indiques tu fecha ideal y la hora de tu reservacion.",
     { capture: true },
     async (ctx, { fallBack, flowDynamic }) => {
+
+      //Validando si cancelaron la solicitud
+      if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
+        return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
+      }
 
       let tempFecha = ctx.body;
 
@@ -130,7 +132,10 @@ const flowCita = addKeyword(["2", "dos", "cita"])
     }
   )
   .addAnswer(
-    "En unos momentos te llamará una asistente real para que puedan consolidar la reservacion 🙌"
+    "En unos momentos te llamará una asistente real para que puedan consolidar la reservacion 🙌",
+    null,
+    null,
+    [flowGracias]
   );
 
   const flowPromociones = addKeyword([
@@ -182,7 +187,7 @@ const flowCita = addKeyword(["2", "dos", "cita"])
     },
     [ promoAlisado, promoMechas, promoManicure, 
       promoMaquillaje, promoCejaspes, promoPedicure, promoDepilaciones,
-      promoLimpiezafacial, promoTratamientoCapilar, promoOtros]
+      promoLimpiezafacial, promoTratamientoCapilar, promoOtros, flowGracias]
     );
 
 const flowServicios = addKeyword([
@@ -236,7 +241,7 @@ const flowServicios = addKeyword([
   },
   [servicioAlisado, servicioMechas, servicioManicure, 
     servicioMaquillaje, servicioCejaspes, servicioPedicure, servicioDepilaciones,
-    servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros]
+    servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros, flowGracias]
   );
 
 const flowPrincipal = addKeyword([
@@ -251,11 +256,11 @@ const flowPrincipal = addKeyword([
   .addAnswer(
     [
       "*Porfavor selecciona una de nuestras opciones:*",
-      "\n_1️⃣ Servicios_", //LISTO
-      "\n_2️⃣ Agendar una Cita_", //IN DEV
-      "\n_3️⃣ Contacto_", //LISTO
+      "\n_1️⃣ Servicios_",
+      "\n_2️⃣ Agendar una Cita_",
+      "\n_3️⃣ Contacto_",
       "\n_4️⃣ Promociones_", 
-      "\n_5️⃣ Ubicacion_", //LISTO
+      "\n_5️⃣ Ubicacion_",
     ],
     { capture: true },
     (ctx, { fallBack }) => {
