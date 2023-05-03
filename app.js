@@ -13,6 +13,11 @@ const {
 const {servicioAlisado, servicioMechas, servicioManicure, servicioMaquillaje, 
       servicioCejaspes, servicioPedicure, servicioDepilaciones,
       servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros} = require("./subFlows/sfServicios")
+
+const {promoAlisado, promoMechas, promoManicure, promoMaquillaje, 
+      promoCejaspes, promoPedicure, promoDepilaciones,
+      promoLimpiezafacial, promoTratamientoCapilar, promoOtros} = require("./subFlows/sfPromociones")
+
 const fs = require("fs")
 const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
@@ -25,12 +30,6 @@ const flowNegativa = addKeyword(["cancelar", "canselar"]).addAnswer(
 const flowCancelar = addKeyword(["cancelar", "canselar"]).addAnswer(
   "Entiendo, esperamos que te animes a probar nuestros servicios en un futuro!"
 );
-
-const flowPromociones = addKeyword(["4", "promos", "promociones", "prom"])
-.addAnswer("Tenemos las siguientes promociones:", null, async (_, {flowDynamic}) => {
-
-  return await flowDynamic([{body:"hola"}, {body: " ", media:"./resources/servicios/imgs/alisado/brasileroSuperior.jpg",}])
-});
 
 const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "queda"]).addAnswer(
 [
@@ -126,6 +125,50 @@ const flowCita = addKeyword(["2", "dos", "cita"])
     "En unos momentos se te comunicara con una asistente real para que puedan consolidar la reservacion 🙌"
   );
 
+  const flowPromociones = addKeyword([
+    "4",
+    "promociones",
+    "promocion"
+  ])
+    .addAnswer([
+      "Genial! Puedes consultar por las siguiebtes promociones:",
+      "\n_Ⓐ ALISADOS_",
+      "\n_Ⓑ MECHAS_",
+      "\n_Ⓒ MANICURE_",
+      "\n_Ⓓ MAQUILLAJE_",
+      "\n_Ⓔ CEJAS Y PESTAÑAS_",
+      "\n_Ⓕ PEDICURE_",
+      "\n_Ⓖ DEPILACIONES_",
+      "\n_Ⓗ LIMPIEZA FACIAL_",
+      "\n_Ⓘ TRATAMIENTO CAPILARES_",
+      "\n_Ⓙ OTROS_",
+  
+    ])
+    .addAnswer("Si desea ver el detalle de alguna promocion escriba la letra correspondiente.",
+    { capture: true },
+    (ctx, { fallBack }) => {
+      const rsp = ctx.body;
+  
+      //11 Opciones
+      const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+  
+      let valid = false;
+      for (let i = 0; i < kwValid.length; i++) {
+        if (rsp.includes(kwValid[i])) {
+          valid = true;
+          console.log("RespuestaServicios: ", ctx.body);
+        }
+      }
+  
+      if (valid == false) {
+        return fallBack();
+      }
+    },
+    [flowNegativa, promoAlisado, promoMechas, promoManicure, 
+      promoMaquillaje, promoCejaspes, promoPedicure, promoDepilaciones,
+      promoLimpiezafacial, promoTratamientoCapilar, promoOtros]
+    );
+
 const flowServicios = addKeyword([
   "1",
   "servicios",
@@ -147,7 +190,7 @@ const flowServicios = addKeyword([
     "\n_Ⓙ OTROS_",
 
   ])
-  .addAnswer("Si desea ver el detalle de algun servicio escriba el numero correspondiente",
+  .addAnswer("Si desea ver el detalle de algun servicio escriba la letra correspondiente",
   { capture: true },
   (ctx, { fallBack }) => {
     const rsp = ctx.body;
