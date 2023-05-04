@@ -39,11 +39,12 @@ const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "qu
 )
 .addAnswer("*Fachada del local*", {media:'./resources/ubicacion/imgs/fachada.jpeg'})
 .addAnswer(
-  "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
+  "Para volver al menu principal escriba la letra *m* 😊",
   null,
   null,
   [flowGracias]
-);
+)
+.addAnswer("Para comunicarse con una *Recepcionista*, escribanos a este número 974322773")
 
 const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
   .addAnswer(["TELEFONO DE CITAS - WSP:", "▬  📞 974322773 📞"])
@@ -216,6 +217,8 @@ const flowServicios = addKeyword([
   (ctx, { fallBack, endFlow }) => {
     const rsp = ctx.body;
 
+      console.log(typeof rsp)
+
       //Validando si cancelaron la solicitud
       if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
         return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
@@ -236,7 +239,7 @@ const flowServicios = addKeyword([
     }
 
     if (valid == false) {
-      return fallBack("Por favor solo ingrese una letra");
+      return fallBack("Por favor solo ingrese una letra" + rsp);
     }
   },
   [servicioAlisado, servicioMechas, servicioManicure, 
@@ -244,9 +247,7 @@ const flowServicios = addKeyword([
     servicioLimpiezafacial, servicioTratamientoCapilar, servicioOtros, flowGracias]
   );
 
-const flowPrincipal = addKeyword([
-  EVENTS.WELCOME
-])
+const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer("🙌 Hola bienvenid@!")
   .addAnswer(
     "Comentanos ¿Que te gustaría saber?",
@@ -282,6 +283,10 @@ const flowPrincipal = addKeyword([
     },
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
   );
+
+const flowBienvenida = addKeyword('h')
+.addAnswer("Bienvenido, si desea ver el menu principal presione *m*", null, null,
+[flowPrincipal])
 
 const main = async () => {
   const adapterDB = new MockAdapter();

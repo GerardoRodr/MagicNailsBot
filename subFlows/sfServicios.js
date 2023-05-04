@@ -43,7 +43,7 @@ const servicioAlisado = addKeyword(['a', 'A'], {sensitive: true,})
     return flowDynamic(messageObjects)
 })
 .addAnswer(
-  "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
+  "Para volver al menu principal, presione m 😊. Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773",
   null,
   null,
   [flowGracias]
