@@ -59,8 +59,13 @@ const servicioMechas = addKeyword(['b', 'B'], {sensitive: true,})
 .addAnswer(
 "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-null,
-[flowGracias]
+async (ctx, {previousAnswers}) => {
+  // Aquí se invoca servicioManicure
+  const servicioManicureResponse = await servicioManicure.run(ctx, {previousAnswers});
+  // Se agrega servicioManicure al arreglo de opciones
+  const options = [flowGracias, servicioManicureResponse];
+  return options;
+}
 );
 
 const servicioManicure = addKeyword(['c', 'C'], {sensitive: true,})

@@ -53,7 +53,13 @@ const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
     null,
     null,
     [flowGracias]
-  );
+  )
+  .addAnswer(
+    "Para volver al menu principal, presione m 😊. Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773",
+    null,
+    null,
+    [flowGracias]
+  )
 
 const flowCita = addKeyword(["2", "dos", "cita"])
   .addAnswer(
@@ -172,6 +178,8 @@ const flowCita = addKeyword(["2", "dos", "cita"])
       const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
       "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
 
+      console.log(rsp === kwValid[0])
+
       let valid = false;
       for (let i = 0; i < kwValid.length; i++) {
         if (rsp === kwValid[i] || rsp === kwValid[i].toUpperCase()) {
@@ -217,7 +225,7 @@ const flowServicios = addKeyword([
   (ctx, { fallBack, endFlow }) => {
     const rsp = ctx.body;
 
-      console.log(typeof rsp)
+      console.log(typeof ctx.body)
 
       //Validando si cancelaron la solicitud
       if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
@@ -230,7 +238,7 @@ const flowServicios = addKeyword([
 
     let valid = false;
     for (let i = 0; i < kwValid.length; i++) {
-      if (rsp === kwValid[i] || rsp === kwValid[i].toUpperCase()) {
+      if (ctx.body === kwValid[i] || rsp === kwValid[i].toUpperCase()) {
         valid = true;
         console.log(kwValid[i]);
         console.log(kwValid[i].toUpperCase());
@@ -248,7 +256,7 @@ const flowServicios = addKeyword([
   );
 
 const flowPrincipal = addKeyword(EVENTS.WELCOME)
-  .addAnswer("🙌 Hola bienvenid@!")
+  .addAnswer("🙌 Hola bienvenid@, soy tu asistente virtual MagicBot!")
   .addAnswer(
     "Comentanos ¿Que te gustaría saber?",
     null,
@@ -284,13 +292,49 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
   );
 
-const flowBienvenida = addKeyword('h')
-.addAnswer("Bienvenido, si desea ver el menu principal presione *m*", null, null,
-[flowPrincipal])
+  const flowMenu = addKeyword('m')
+  .addAnswer(
+    "Comentanos ¿Que te gustaría saber?"
+  )
+  .addAnswer(
+    [
+      "*Porfavor selecciona una de nuestras opciones:*",
+      "\n_1️⃣ Servicios_",
+      "\n_2️⃣ Agendar una Cita_",
+      "\n_3️⃣ Contacto_",
+      "\n_4️⃣ Promociones_", 
+      "\n_5️⃣ Ubicacion_",
+    ],
+    { capture: true },
+    (ctx, { fallBack }) => {
+      const rsp = ctx.body;
+
+      const kwValid = ["1", "2", "3", "4", "5"];
+
+      let valid = false;
+      for (let i = 0; i < kwValid.length; i++) {
+        if (rsp === kwValid[i]) {
+          valid = true;
+          console.log("Respuesta: ", ctx.body);
+        }
+      }
+
+      if (valid == false) {
+        return fallBack();
+      }
+    },
+    [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
+  )
+  .addAnswer(
+    "Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773",
+    null,
+    null,
+    [flowGracias]
+);
 
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal]);
+  const adapterFlow = createFlow([flowPrincipal, flowMenu]);
   const adapterProvider = createProvider(BaileysProvider);
   createBot({
     flow: adapterFlow,
