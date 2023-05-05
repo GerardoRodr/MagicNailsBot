@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="/resources/favicon.ico">
+    <link rel="stylesheet" href="/resources/libs/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    
+    <!-- INICIO DE LA BARRA DE NAVEGACION -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">MagicNailsSpa</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Administrar Servicios</a
+              >
+              <div class="dropdown-menu" style="z-index: 1500">
+                <a class="dropdown-item" href="/servicios/alisado">Alisado</a>
+                <a class="dropdown-item" href="/servicios/mechas">Mechas</a>
+                <a class="dropdown-item" href="/servicios/manicure">Manicure</a>
+                <a class="dropdown-item" href="/servicios/maquillaje">Maquillaje</a>
+                <a class="dropdown-item" href="/servicios/cejaspes">Cejas y Pestañas</a>
+                <a class="dropdown-item" href="/servicios/pedicure">Pedicure</a>
+                <a class="dropdown-item" href="/servicios/depilaciones">Depilaciones</a>
+                <a class="dropdown-item" href="/servicios/limpiezafacial">Limpieza facial</a>
+                <a class="dropdown-item" href="/servicios/tratamcapil">Tratamientos Capilares</a>
+                <a class="dropdown-item" href="/servicios/otros">Otros</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Administrar Promociones</a
+              >
+              <div class="dropdown-menu" style="z-index: 1500">
+                <a class="dropdown-item" href="/promociones/alisado">Alisado</a>
+                <a class="dropdown-item" href="/promociones/mechas">Mechas</a>
+                <a class="dropdown-item" href="/promociones/manicure">Manicure</a>
+                <a class="dropdown-item" href="/promociones/maquillaje">Maquillaje</a>
+                <a class="dropdown-item" href="/promociones/cejaspes">Cejas y Pestañas</a>
+                <a class="dropdown-item" href="/promociones/pedicure">Pedicure</a>
+                <a class="dropdown-item" href="/promociones/depilaciones">Depilaciones</a>
+                <a class="dropdown-item" href="/promociones/limpiezafacial">Limpieza facial</a>
+                <a class="dropdown-item" href="/promociones/tratamcapil">Tratamientos Capilares</a>
+                <a class="dropdown-item" href="/promociones/otros">Otros</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- FIN DE LA BARRA DE NAVEGACION -->
+
+    <div class="container">
+      <div class="row vh-100 justify-content-center align-items-center">
+        <div class="col-auto bg-light p-5">
+          <form method="post"
+                action="/login">
+            <div class="form-outline mb-4">
+              <input type="text" id="formUsuario" class="form-control border border-2" />
+              <label class="form-label" for="formUsuario">Usuario</label>
+            </div>
+            <div class="form-outline mb-4">
+              <input type="password" id="formContraseña" class="form-control border border-2" />
+              <label class="form-label" for="formContraseña">Contraseña</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+  <script src="/resources/libs/bootstrap.bundle.min.js"></script>
+</html>
