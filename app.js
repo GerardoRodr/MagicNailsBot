@@ -313,7 +313,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
       let valid = false;
       for (let i = 0; i < kwValid.length; i++) {
-        if (rsp === kwValid[i]) {
+        if (rsp === kwValid[i] && rsp.length === 1) {
           valid = true;
           console.log("Respuesta: ", ctx.body);
         }

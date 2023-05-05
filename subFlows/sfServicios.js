@@ -43,7 +43,7 @@ const servicioAlisado = addKeyword(['a', 'A'], {sensitive: true,})
     return flowDynamic(messageObjects)
 })
 .addAnswer(
-  "Para volver al menu principal, presione m 😊. Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773",
+  "Para volver al menu principal, presione m 😊.\nSi desea comunicarse con una recepcionista, escribanos a este numero: 974322773",
   null,
   null,
   [flowGracias]
@@ -59,13 +59,8 @@ const servicioMechas = addKeyword(['b', 'B'], {sensitive: true,})
 .addAnswer(
 "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
 null,
-async (ctx, {previousAnswers}) => {
-  // Aquí se invoca servicioManicure
-  const servicioManicureResponse = await servicioManicure.run(ctx, {previousAnswers});
-  // Se agrega servicioManicure al arreglo de opciones
-  const options = [flowGracias, servicioManicureResponse];
-  return options;
-}
+null,
+[flowGracias]
 );
 
 const servicioManicure = addKeyword(['c', 'C'], {sensitive: true,})
