@@ -2,132 +2,94 @@
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0C3FBA24175B51DD3D1',
+    id: '3EB05BD2E6D7EEBA77DD13',
     participant: undefined
   },
-  messageTimestamp: 1683416812,
+  messageTimestamp: 1683417452,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: 'Hey',
+    conversation: 'Hola',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Hey',
+  body: 'Hola',
   from: '51996622623'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0E4C4E001056E5F7DD8',
+    id: '3EB081598360176FF1092D',
     participant: undefined
   },
-  messageTimestamp: 1683416815,
+  messageTimestamp: 1683417458,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: '2',
+    conversation: '5',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: '2',
+  body: '5',
   from: '51996622623'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0248778A6764536BDD1',
+    id: '3EB033A640B9D5FBFC10D0',
     participant: undefined
   },
-  messageTimestamp: 1683416820,
+  messageTimestamp: 1683417465,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: 'Ger',
+    conversation: 'M',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Ger',
+  body: 'M',
   from: '51996622623'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB04B6D305408A1A1C6F8',
+    id: '3EB01384D4EF5316EF3B4B',
     participant: undefined
   },
-  messageTimestamp: 1683416847,
+  messageTimestamp: 1683417467,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: 'Gerardo Rodriguez',
+    conversation: '1',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Gerardo Rodriguez',
+  body: '1',
   from: '51996622623'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0545E6179FB26CA8330',
+    id: '3EB0414C59573F0F9E1B30',
     participant: undefined
   },
-  messageTimestamp: 1683416859,
+  messageTimestamp: 1683417477,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: 'Necesito un alisado de pelo',
+    conversation: 'M',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  body: 'Necesito un alisado de pelo',
-  from: '51996622623'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51996622623@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB0B2B54EDEB681D33FB8',
-    participant: undefined
-  },
-  messageTimestamp: 1683416868,
-  pushName: 'Parrilladas Rodriguez',
-  message: Message {
-    conversation: '23/10/20',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '23/10/20',
-  from: '51996622623'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51996622623@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB031A9F2970160FB717D',
-    participant: undefined
-  },
-  messageTimestamp: 1683416880,
-  pushName: 'Parrilladas Rodriguez',
-  message: Message {
-    conversation: 'Gracias',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: 'Gracias',
+  body: 'M',
   from: '51996622623'
 }

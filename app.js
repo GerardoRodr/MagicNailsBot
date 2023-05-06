@@ -39,7 +39,8 @@ const flowUbicacion = addKeyword(["^5$"], {regex: true,})
 ]
 )
 .addAnswer("*Fachada del local*", {media:'./resources/ubicacion/imgs/fachada.jpeg'})
-.addAnswer("Para comunicarse con una *Recepcionista*, escribanos a este número 974322773")
+.addAnswer("📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773")
+.addAnswer("⬅️ Para volver al menu principal escriba **M**")
 
 const flowContacto = addKeyword(["^3$"], {regex: true,})
   .addAnswer(["TELEFONO DE CITAS - WSP:", "▬  📞 974322773 📞"])
@@ -112,7 +113,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
       console.log(tempFecha);
 
       return flowDynamic([
-        `Todo listo! El detalle de tu reservacion es la siguiente:
+        `*_Todo listo! El detalle de tu reservacion es la siguiente:_*
         \n*Nombre:* ${nombre}
         \n*Servicio:* ${servicio}
         \n*Fecha ideal:* ${fecha}`
@@ -125,7 +126,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
   const flowPromociones = addKeyword(["^(4|[pP])$"], {regex: true,})
     .addAnswer([
-      "*_Genial! Puedes consultar por las siguientes promociones:*_",
+      "_*Genial! Puedes consultar por las siguientes promociones:*_",
       "\n*1️⃣ ALISADOS*",
       "\n*2️⃣ MECHAS*",
       "\n*3️⃣ MANICURE*",
@@ -218,7 +219,7 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
 
     if (valid == false) {
       return fallBack([
-        "*_⚠️ Por favor elija una opcion valida ⚠️*_",
+        "*_⚠️ Por favor elija una opcion valida ⚠️_*",
         "\n*1️⃣ ALISADOS*",
         "\n*2️⃣ MECHAS*",
         "\n*3️⃣ MANICURE*",
@@ -279,11 +280,51 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
   )
 
+  const flowMenu = addKeyword(["^[mM]$"], {regex: true,})
+  .addAnswer(
+    [
+      "*Porfavor selecciona una de nuestras opciones:*",
+      "\n*1️⃣ Servicios*",
+      "\n*2️⃣ Agendar una Cita*",
+      "\n*3️⃣ Contacto*",
+      "\n*4️⃣ Promociones*", 
+      "\n*5️⃣ Ubicacion*",
+      "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*"
+    ],
+    { capture: true },
+    async (ctx, { fallBack }) => {
+      const rsp = ctx.body;
+
+      const kwValid = ["1", "2", "3", "4", "5"];
+
+      let valid = false;
+      for (let i = 0; i < kwValid.length; i++) {
+        if (rsp === kwValid[i] && rsp.length === 1) {
+          valid = true;
+          console.log("Respuesta: ", ctx.body);
+        }
+      }
+
+      if (valid == false) {
+        fallBack([
+          "*Porfavor selecciona una de nuestras opciones:*",
+          "\n*1️⃣ Servicios*",
+          "\n*2️⃣ Agendar una Cita*",
+          "\n*3️⃣ Contacto*",
+          "\n*4️⃣ Promociones*", 
+          "\n*5️⃣ Ubicacion*",
+          "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*"
+        ]);
+      }
+    },
+    [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
+  )
+
 //(["^1$"], {regex: true,})
 
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal, flowGracias, flowServicios, flowPromociones]);
+  const adapterFlow = createFlow([flowPrincipal, flowGracias, flowServicios, flowPromociones, flowMenu]);
   const adapterProvider = createProvider(BaileysProvider);
   createBot({
     flow: adapterFlow,
