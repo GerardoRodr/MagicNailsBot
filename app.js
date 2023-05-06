@@ -170,17 +170,28 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
       console.log(rsp === kwValid[0])
 
       let valid = false;
+
       for (let i = 0; i < kwValid.length; i++) {
-        if (rsp === kwValid[i] || rsp === kwValid[i].toUpperCase()) {
+        if (rsp === kwValid[i]) {
           valid = true;
-          console.log(kwValid[i]);
-          console.log(kwValid[i].toUpperCase());
           console.log("RespuestaServicios: ", rsp);
         }
       }
 
       if (valid == false) {
-        return fallBack("Por favor solo ingrese una letra");
+        return fallBack([
+      "Por favor elija una opcion valida:",
+      "\n*1️⃣ ALISADOS*",
+      "\n*2️⃣ MECHAS*",
+      "\n*3️⃣ MANICURE*",
+      "\n*4️⃣ MAQUILLAJE*",
+      "\n*5️⃣ CEJAS Y PESTAÑAS*",
+      "\n*6️⃣ PEDICURE*",
+      "\n*7️⃣ DEPILACIONES*",
+      "\n*8️⃣ LIMPIEZA FACIAL*",
+      "\n*9️⃣ TRATAMIENTO CAPILARES*",
+      "\n*🔟 OTROS*",
+    ]);
       }
     },
     [ promoAlisado, promoMechas, promoManicure, 
@@ -202,7 +213,7 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
     "\n*9️⃣ TRATAMIENTO CAPILARES*",
     "\n*🔟 OTROS*",
   ])
-  .addAnswer("Si desea ver el detalle de algun servicio escriba la letra correspondiente",
+  .addAnswer("Si desea ver el detalle de algun servicio escriba el numero correspondiente 🙌",
   { capture: true },
   (ctx, { fallBack, endFlow }) => {
     const rsp = ctx.body;
@@ -245,6 +256,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
       "\n*3️⃣ Contacto*",
       "\n*4️⃣ Promociones*", 
       "\n*5️⃣ Ubicacion*",
+      "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*"
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
@@ -268,48 +280,14 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
           "\n*3️⃣ Contacto*",
           "\n*4️⃣ Promociones*", 
           "\n*5️⃣ Ubicacion*",
+          "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*"
         ]);
       }
     },
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
-  );
+  )
 
 //(["^1$"], {regex: true,})
-
-  const flowMenu = addKeyword(["^[mM]$"], {regex: true,})
-  .addAnswer(
-    "Comentanos ¿Que te gustaría saber?"
-  )
-  .addAnswer(
-    [
-      "*Porfavor selecciona una de nuestras opciones:*",
-      "\n*1️⃣ Servicios*",
-      "\n*2️⃣ Agendar una Cita*",
-      "\n*3️⃣ Contacto*",
-      "\n*4️⃣ Promociones*", 
-      "\n*5️⃣ Ubicacion*",
-    ],
-    { capture: true },
-    (ctx, { fallBack }) => {
-      const rsp = ctx.body;
-
-      const kwValid = ["1", "2", "3", "4", "5"];
-
-      let valid = false;
-      for (let i = 0; i < kwValid.length; i++) {
-        if (rsp === kwValid[i] && rsp.length === 1) {
-          valid = true;
-          console.log("Respuesta: ", ctx.body);
-        }
-      }
-
-      if (valid == false) {
-        return fallBack();
-      }
-    },
-    [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
-  )
-  .addAnswer("Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773");
 
 const main = async () => {
   const adapterDB = new MockAdapter();

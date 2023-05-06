@@ -42,135 +42,118 @@ const servicioAlisado = addKeyword(["^1$"], {regex: true,})
 
     return flowDynamic(messageObjects)
 })
-.addAnswer(
-  "▬Para consultar otro servicio, escriba *S* 😊" +
-  "\n▬Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773");
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioMechas = addKeyword(['b', 'B'], {sensitive: true,})
+const servicioMechas = addKeyword(["^2$"], {regex: true,})
 .addAnswer("*Mechas:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'mechas');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioManicure = addKeyword(['c', 'C'], {sensitive: true,})
+const servicioManicure = addKeyword(["^3$"], {regex: true,})
 .addAnswer("*Manicure:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'manicure');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioMaquillaje = addKeyword(['d', 'D'], {sensitive: true,})
+const servicioMaquillaje = addKeyword(["^4$"], {regex: true,})
 .addAnswer("*Maquillaje:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'maquillaje');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioCejaspes = addKeyword(['e', 'E'], {sensitive: true,})
+const servicioCejaspes = addKeyword(["^5$"], {regex: true,})
 .addAnswer("*Cejas y Pestañas:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'cejaspes');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioPedicure = addKeyword(['f', 'F'], {sensitive: true,})
+const servicioPedicure = addKeyword(["^6$"], {regex: true,})
 .addAnswer("*Pedicure:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'pedicure');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioDepilaciones = addKeyword(['g', 'G'], {sensitive: true,})
+const servicioDepilaciones = addKeyword(["^7$"], {regex: true,})
 .addAnswer("*Depilaciones:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'depilaciones');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioLimpiezafacial = addKeyword(['h', 'H'], {sensitive: true,})
+const servicioLimpiezafacial = addKeyword(["^8$"], {regex: true,})
 .addAnswer("*Limpieza Facial:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'limpiezafacial');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioTratamientoCapilar = addKeyword(['i', 'I'], {sensitive: true,})
+const servicioTratamientoCapilar = addKeyword(["^9$"], {regex: true,})
 .addAnswer("*Tratamiento Capilar:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'tratamcapil');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
-const servicioOtros = addKeyword(['j', 'J'])
+const servicioOtros = addKeyword(["^10$"], {regex: true,})
 .addAnswer("*Otros:*", null, async (ctx, {flowDynamic}) => {
   const messages = readMessagesFromFile('./resources/dataServicios.json', 'otros');
   const messageObjects = retMsgs(...messages)
 
   return flowDynamic(messageObjects)
 })
-.addAnswer(
-"Si desea volver al para otra consulta, solo vuelvanos a escribir 😊",
-null,
-null,
-[flowGracias]
-);
+.addAnswer([
+  "⬅️ Para consultar otro servicio, escriba **S**",
+  "\n⬅️ Para volver al menu principal escriba **M**",
+  "\n📲 Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773"]);
 
 module.exports = 
 {servicioAlisado, servicioMechas, servicioManicure, 
