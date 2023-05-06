@@ -69,9 +69,8 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
         return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
       }
 
-      //Pasando todo a minuscula para una mejor validacion
-      const nameRgx =
-        /^[A-Za-zÁ-ÿ\u00C0-\u017F']+([\s-][A-Za-zÁ-ÿ\u00C0-\u017F']+)*$/;
+      //REGEX Para validar el nombre
+      const nameRgx = /^[A-Za-z]+([ ][A-Za-z]+)+$/;
 
       //Validamos que se escriba bien el nombre
       if (!nameRgx.test(ctx.body)) {
@@ -180,18 +179,18 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
       if (valid == false) {
         return fallBack([
-      "Por favor elija una opcion valida:",
-      "\n*1️⃣ ALISADOS*",
-      "\n*2️⃣ MECHAS*",
-      "\n*3️⃣ MANICURE*",
-      "\n*4️⃣ MAQUILLAJE*",
-      "\n*5️⃣ CEJAS Y PESTAÑAS*",
-      "\n*6️⃣ PEDICURE*",
-      "\n*7️⃣ DEPILACIONES*",
-      "\n*8️⃣ LIMPIEZA FACIAL*",
-      "\n*9️⃣ TRATAMIENTO CAPILARES*",
-      "\n*🔟 OTROS*",
-    ]);
+          "Por favor elija una opcion valida:",
+          "\n*1️⃣ ALISADOS*",
+          "\n*2️⃣ MECHAS*",
+          "\n*3️⃣ MANICURE*",
+          "\n*4️⃣ MAQUILLAJE*",
+          "\n*5️⃣ CEJAS Y PESTAÑAS*",
+          "\n*6️⃣ PEDICURE*",
+          "\n*7️⃣ DEPILACIONES*",
+          "\n*8️⃣ LIMPIEZA FACIAL*",
+          "\n*9️⃣ TRATAMIENTO CAPILARES*",
+          "\n*🔟 OTROS*",
+        ]);
       }
     },
     [ promoAlisado, promoMechas, promoManicure, 
@@ -217,9 +216,6 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
   { capture: true },
   (ctx, { fallBack, endFlow }) => {
     const rsp = ctx.body;
-
-      console.log(typeof ctx.body)
-
       //Validando si cancelaron la solicitud
       if (ctx.body == 'Cancelar' || ctx.body == 'cancelar' || ctx.body == 'Canselar' || ctx.body == 'canselar') {
         return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
@@ -238,7 +234,7 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
 
     if (valid == false) {
       return fallBack([
-        "Por favor seleccione una de nuestras opciones:",
+        "Por favor elija una opcion valida:",
         "\n*1️⃣ ALISADOS*",
         "\n*2️⃣ MECHAS*",
         "\n*3️⃣ MANICURE*",
