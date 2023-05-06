@@ -32,9 +32,6 @@ function retMsgs(...messages) {
   return messageObjects;
 }
 
-const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
-.addAnswer("Muchas gracias a ti 😊")
-
 const servicioAlisado = addKeyword(["^1$"], {regex: true,})
 .addAnswer("*Alisado:*", null, async (ctx, {flowDynamic}) => {
     const messages = readMessagesFromFile('./resources/dataServicios.json', 'alisado');

@@ -43,18 +43,7 @@ const flowUbicacion = addKeyword(["^5$"], {regex: true,})
 
 const flowContacto = addKeyword(["^3$"], {regex: true,})
   .addAnswer(["TELEFONO DE CITAS - WSP:", "▬  📞 974322773 📞"])
-  .addAnswer(
-    "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
-    null,
-    null,
-    [flowGracias]
-  )
-  .addAnswer(
-    "Para volver al menu principal, presione m 😊. Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773",
-    null,
-    null,
-    [flowGracias]
-  )
+  .addAnswer("⬅️ Para volver al menu principal escriba **M**")
 
 const flowCita = addKeyword(["^2$"], {regex: true,})
   .addAnswer(
@@ -74,16 +63,14 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
       //Validamos que se escriba bien el nombre
       if (!nameRgx.test(ctx.body)) {
-        fallBack([
-          "Me parece que el nombre que es ingresado no es valido, trada de escribirlo de otra manera.",
-          "\nEjemplo: ",
-          "_Luis Ramirez_",
-        ]);
-      } 
-
-      nombre = ctx.body;
-      console.log(nombre);
-      return flowDynamic(`Encantado *${nombre}*, continuamos...`)
+        return fallBack("Me parece que el nombre que es ingresado no es valido, trata de escribirlo de otra manera." +
+          "\n\n*Ejemplo:*" +
+          "\n_Maria Rodriguez_")
+      } else {
+        nombre = ctx.body;
+        console.log(nombre);
+        return flowDynamic(`Encantado *${nombre}*`)
+      }
     }
   )
   .addAnswer(
@@ -126,22 +113,19 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
       return flowDynamic([
         `Todo listo! El detalle de tu reservacion es la siguiente:
-        \nNombre: ${nombre}
-        \nServicio: ${servicio}
-        \nFecha ideal: ${fecha}`
+        \n*Nombre:* ${nombre}
+        \n*Servicio:* ${servicio}
+        \n*Fecha ideal:* ${fecha}`
       ])
     }
   )
   .addAnswer(
-    "En unos momentos te llamará una asistente real para que puedan consolidar la reservacion 🙌",
-    null,
-    null,
-    [flowGracias]
+    "En unos momentos te llamará una asistente real para que puedan consolidar la reservacion 🙌"
   );
 
-  const flowPromociones = addKeyword(["^4$"], {regex: true,})
+  const flowPromociones = addKeyword(["^(4|[pP])$"], {regex: true,})
     .addAnswer([
-      "Genial! Nuestras promociones son las siguientes:",
+      "*_Genial! Puedes consultar por las siguientes promociones:*_",
       "\n*1️⃣ ALISADOS*",
       "\n*2️⃣ MECHAS*",
       "\n*3️⃣ MANICURE*",
@@ -163,7 +147,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
         return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
       }     
   
-      //11 Opciones
+      //10 Opciones
       const kwValid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
       console.log(rsp === kwValid[0])
@@ -179,7 +163,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
       if (valid == false) {
         return fallBack([
-          "Por favor elija una opcion valida:",
+          "*_⚠️Por favor elija una opcion valida:⚠️*_",
           "\n*1️⃣ ALISADOS*",
           "\n*2️⃣ MECHAS*",
           "\n*3️⃣ MANICURE*",
@@ -200,7 +184,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
 const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
   .addAnswer([
-    "Genial! Nuestros servicios son los siguientes:",
+    "_*Genial! Nuestros servicios son los siguientes:*_",
     "\n*1️⃣ ALISADOS*",
     "\n*2️⃣ MECHAS*",
     "\n*3️⃣ MANICURE*",
@@ -221,7 +205,7 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
         return endFlow({body: '❌ Su solicitud ha sido cancelada ❌'})
       }
 
-    //11 Opciones
+    //10 Opciones
     const kwValid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
     let valid = false;
@@ -234,7 +218,7 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
 
     if (valid == false) {
       return fallBack([
-        "Por favor elija una opcion valida:",
+        "*_⚠️ Por favor elija una opcion valida ⚠️*_",
         "\n*1️⃣ ALISADOS*",
         "\n*2️⃣ MECHAS*",
         "\n*3️⃣ MANICURE*",

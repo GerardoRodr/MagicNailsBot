@@ -2,90 +2,29 @@
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0C7E66C37EFB5E651EA',
+    id: '3EB0C3FBA24175B51DD3D1',
     participant: undefined
   },
-  messageTimestamp: 1683413359,
+  messageTimestamp: 1683416812,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: 'ss',
+    conversation: 'Hey',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  verifiedBizName: 'Parrilladas Rodriguez',
-  body: 'ss',
+  body: 'Hey',
   from: '51996622623'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB06450AA0678BB7AA6AB',
+    id: '3EB0E4C4E001056E5F7DD8',
     participant: undefined
   },
-  messageTimestamp: 1683413361,
-  pushName: 'Parrilladas Rodriguez',
-  message: Message {
-    conversation: '1',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  verifiedBizName: 'Parrilladas Rodriguez',
-  body: '1',
-  from: '51996622623'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51996622623@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB0F34FB4360558819B87',
-    participant: undefined
-  },
-  messageTimestamp: 1683413363,
-  pushName: 'Parrilladas Rodriguez',
-  message: Message {
-    conversation: '1',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  verifiedBizName: 'Parrilladas Rodriguez',
-  body: '1',
-  from: '51996622623'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51996622623@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB0CDF18FC7C89AF73797',
-    participant: undefined
-  },
-  messageTimestamp: 1683413369,
-  pushName: 'Parrilladas Rodriguez',
-  message: Message {
-    conversation: 'S',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  verifiedBizName: 'Parrilladas Rodriguez',
-  body: 'S',
-  from: '51996622623'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '51996622623@s.whatsapp.net',
-    fromMe: false,
-    id: '3EB0C01C66D473EBBC311E',
-    participant: undefined
-  },
-  messageTimestamp: 1683413371,
+  messageTimestamp: 1683416815,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
     conversation: '2',
@@ -94,7 +33,6 @@
       deviceListMetadataVersion: 2
     }
   },
-  verifiedBizName: 'Parrilladas Rodriguez',
   body: '2',
   from: '51996622623'
 }
@@ -102,39 +40,94 @@
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB0BE651E7E3F156817ED',
+    id: '3EB0248778A6764536BDD1',
     participant: undefined
   },
-  messageTimestamp: 1683413374,
+  messageTimestamp: 1683416820,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: 's',
+    conversation: 'Ger',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  verifiedBizName: 'Parrilladas Rodriguez',
-  body: 's',
+  body: 'Ger',
   from: '51996622623'
 }
 [handleMsg]:  {
   key: {
     remoteJid: '51996622623@s.whatsapp.net',
     fromMe: false,
-    id: '3EB02D5F6DF52FDE1F8D32',
+    id: '3EB04B6D305408A1A1C6F8',
     participant: undefined
   },
-  messageTimestamp: 1683413376,
+  messageTimestamp: 1683416847,
   pushName: 'Parrilladas Rodriguez',
   message: Message {
-    conversation: '3',
+    conversation: 'Gerardo Rodriguez',
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
       deviceListMetadataVersion: 2
     }
   },
-  verifiedBizName: 'Parrilladas Rodriguez',
-  body: '3',
+  body: 'Gerardo Rodriguez',
+  from: '51996622623'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51996622623@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0545E6179FB26CA8330',
+    participant: undefined
+  },
+  messageTimestamp: 1683416859,
+  pushName: 'Parrilladas Rodriguez',
+  message: Message {
+    conversation: 'Necesito un alisado de pelo',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Necesito un alisado de pelo',
+  from: '51996622623'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51996622623@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0B2B54EDEB681D33FB8',
+    participant: undefined
+  },
+  messageTimestamp: 1683416868,
+  pushName: 'Parrilladas Rodriguez',
+  message: Message {
+    conversation: '23/10/20',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: '23/10/20',
+  from: '51996622623'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '51996622623@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB031A9F2970160FB717D',
+    participant: undefined
+  },
+  messageTimestamp: 1683416880,
+  pushName: 'Parrilladas Rodriguez',
+  message: Message {
+    conversation: 'Gracias',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Gracias',
   from: '51996622623'
 }
