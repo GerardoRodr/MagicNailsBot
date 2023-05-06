@@ -291,7 +291,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal, flowGracias, flowServicios]);
+  const adapterFlow = createFlow([flowPrincipal, flowGracias, flowServicios, flowPromociones]);
   const adapterProvider = createProvider(BaileysProvider);
   createBot({
     flow: adapterFlow,
