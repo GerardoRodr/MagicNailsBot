@@ -142,18 +142,17 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
   const flowPromociones = addKeyword(["^4$"], {regex: true,})
     .addAnswer([
-      "Genial! Puedes consultar por las siguiebtes promociones:",
-      "\n_Ⓐ ALISADOS_",
-      "\n_Ⓑ MECHAS_",
-      "\n_Ⓒ MANICURE_",
-      "\n_Ⓓ MAQUILLAJE_",
-      "\n_Ⓔ CEJAS Y PESTAÑAS_",
-      "\n_Ⓕ PEDICURE_",
-      "\n_Ⓖ DEPILACIONES_",
-      "\n_Ⓗ LIMPIEZA FACIAL_",
-      "\n_Ⓘ TRATAMIENTO CAPILARES_",
-      "\n_Ⓙ OTROS_",
-  
+      "Genial! Nuestras promociones son las siguientes:",
+      "\n*1️⃣ ALISADOS*",
+      "\n*2️⃣ MECHAS*",
+      "\n*3️⃣ MANICURE*",
+      "\n*4️⃣ MAQUILLAJE*",
+      "\n*5️⃣ CEJAS Y PESTAÑAS*",
+      "\n*6️⃣ PEDICURE*",
+      "\n*7️⃣ DEPILACIONES*",
+      "\n*8️⃣ LIMPIEZA FACIAL*",
+      "\n*9️⃣ TRATAMIENTO CAPILARES*",
+      "\n*🔟 OTROS*",
     ])
     .addAnswer("Si desea ver el detalle de alguna promocion escriba la letra correspondiente.",
     { capture: true },
@@ -166,8 +165,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
       }     
   
       //11 Opciones
-      const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
-      "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+      const kwValid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
       console.log(rsp === kwValid[0])
 
@@ -193,17 +191,16 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
   .addAnswer([
     "Genial! Nuestros servicios son los siguientes:",
-    "\n_Ⓐ ALISADOS_",
-    "\n_Ⓑ MECHAS_",
-    "\n_Ⓒ MANICURE_",
-    "\n_Ⓓ MAQUILLAJE_",
-    "\n_Ⓔ CEJAS Y PESTAÑAS_",
-    "\n_Ⓕ PEDICURE_",
-    "\n_Ⓖ DEPILACIONES_",
-    "\n_Ⓗ LIMPIEZA FACIAL_",
-    "\n_Ⓘ TRATAMIENTO CAPILARES_",
-    "\n_Ⓙ OTROS_",
-
+    "\n*1️⃣ ALISADOS*",
+    "\n*2️⃣ MECHAS*",
+    "\n*3️⃣ MANICURE*",
+    "\n*4️⃣ MAQUILLAJE*",
+    "\n*5️⃣ CEJAS Y PESTAÑAS*",
+    "\n*6️⃣ PEDICURE*",
+    "\n*7️⃣ DEPILACIONES*",
+    "\n*8️⃣ LIMPIEZA FACIAL*",
+    "\n*9️⃣ TRATAMIENTO CAPILARES*",
+    "\n*🔟 OTROS*",
   ])
   .addAnswer("Si desea ver el detalle de algun servicio escriba la letra correspondiente",
   { capture: true },
@@ -243,11 +240,11 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer(
     [
       "*Porfavor selecciona una de nuestras opciones:*",
-      "\n_1️⃣ Servicios_",
-      "\n_2️⃣ Agendar una Cita_",
-      "\n_3️⃣ Contacto_",
-      "\n_4️⃣ Promociones_", 
-      "\n_5️⃣ Ubicacion_",
+      "\n*1️⃣ Servicios*",
+      "\n*2️⃣ Agendar una Cita*",
+      "\n*3️⃣ Contacto*",
+      "\n*4️⃣ Promociones*", 
+      "\n*5️⃣ Ubicacion*",
     ],
     { capture: true },
     async (ctx, { fallBack }) => {
@@ -266,11 +263,11 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
       if (valid == false) {
         fallBack([
           "*Porfavor selecciona una de nuestras opciones:*",
-          "\n_1️⃣ Servicios_",
-          "\n_2️⃣ Agendar una Cita_",
-          "\n_3️⃣ Contacto_",
-          "\n_4️⃣ Promociones_", 
-          "\n_5️⃣ Ubicacion_",
+          "\n*1️⃣ Servicios*",
+          "\n*2️⃣ Agendar una Cita*",
+          "\n*3️⃣ Contacto*",
+          "\n*4️⃣ Promociones*", 
+          "\n*5️⃣ Ubicacion*",
         ]);
       }
     },
@@ -286,11 +283,11 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer(
     [
       "*Porfavor selecciona una de nuestras opciones:*",
-      "\n_1️⃣ Servicios_",
-      "\n_2️⃣ Agendar una Cita_",
-      "\n_3️⃣ Contacto_",
-      "\n_4️⃣ Promociones_", 
-      "\n_5️⃣ Ubicacion_",
+      "\n*1️⃣ Servicios*",
+      "\n*2️⃣ Agendar una Cita*",
+      "\n*3️⃣ Contacto*",
+      "\n*4️⃣ Promociones*", 
+      "\n*5️⃣ Ubicacion*",
     ],
     { capture: true },
     (ctx, { fallBack }) => {
