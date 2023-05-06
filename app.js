@@ -26,7 +26,8 @@ const MockAdapter = require("@bot-whatsapp/database/mock");
 const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
 .addAnswer("Muchas gracias a ti 😊")
 
-const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "queda"]).addAnswer(
+const flowUbicacion = addKeyword(["^5$"], {regex: true,})
+.addAnswer(
 [
   "*DIRECCION:*", 
   "▬  Av. Isabel de Bobadilla #388",
@@ -38,15 +39,9 @@ const flowUbicacion = addKeyword(["5", "ubicacion", "direccion", "donde es", "qu
 ]
 )
 .addAnswer("*Fachada del local*", {media:'./resources/ubicacion/imgs/fachada.jpeg'})
-.addAnswer(
-  "Para volver al menu principal escriba la letra *m* 😊",
-  null,
-  null,
-  [flowGracias]
-)
 .addAnswer("Para comunicarse con una *Recepcionista*, escribanos a este número 974322773")
 
-const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
+const flowContacto = addKeyword(["^3$"], {regex: true,})
   .addAnswer(["TELEFONO DE CITAS - WSP:", "▬  📞 974322773 📞"])
   .addAnswer(
     "Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
@@ -61,7 +56,7 @@ const flowContacto = addKeyword(["3", "tres", "contacto", "numero", "numeros"])
     [flowGracias]
   )
 
-const flowCita = addKeyword(["2", "dos", "cita"])
+const flowCita = addKeyword(["^2$"], {regex: true,})
   .addAnswer(
     "Genial! Recuerda que en caso desees cancelar esta solicitud de cita, simplemente escriba la palabra **Cancelar**"
   )
@@ -145,11 +140,7 @@ const flowCita = addKeyword(["2", "dos", "cita"])
     [flowGracias]
   );
 
-  const flowPromociones = addKeyword([
-    "4",
-    "promociones",
-    "promocion"
-  ])
+  const flowPromociones = addKeyword(["^4$"], {regex: true,})
     .addAnswer([
       "Genial! Puedes consultar por las siguiebtes promociones:",
       "\n_Ⓐ ALISADOS_",
@@ -199,13 +190,7 @@ const flowCita = addKeyword(["2", "dos", "cita"])
       promoLimpiezafacial, promoTratamientoCapilar, promoOtros, flowGracias]
     );
 
-const flowServicios = addKeyword([
-  "1",
-  "servicios",
-  "precio",
-  "ptecio",
-  "precios",
-])
+const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
   .addAnswer([
     "Genial! Nuestros servicios son los siguientes:",
     "\n_Ⓐ ALISADOS_",
@@ -233,15 +218,12 @@ const flowServicios = addKeyword([
       }
 
     //11 Opciones
-    const kwValid = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", 
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    const kwValid = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
     let valid = false;
     for (let i = 0; i < kwValid.length; i++) {
-      if (ctx.body === kwValid[i] || rsp === kwValid[i].toUpperCase()) {
+      if (ctx.body === kwValid[i]) {
         valid = true;
-        console.log(kwValid[i]);
-        console.log(kwValid[i].toUpperCase());
         console.log("RespuestaServicios: ", rsp);
       }
     }
@@ -257,11 +239,7 @@ const flowServicios = addKeyword([
 
 const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer("🙌 Hola bienvenid@, soy tu asistente virtual MagicBot!")
-  .addAnswer(
-    "Comentanos ¿Que te gustaría saber?",
-    null,
-    null
-  )
+  .addAnswer("Comentanos ¿Que te gustaría saber?")
   .addAnswer(
     [
       "*Porfavor selecciona una de nuestras opciones:*",
@@ -272,27 +250,36 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
       "\n_5️⃣ Ubicacion_",
     ],
     { capture: true },
-    (ctx, { fallBack }) => {
+    async (ctx, { fallBack }) => {
       const rsp = ctx.body;
 
       const kwValid = ["1", "2", "3", "4", "5"];
 
       let valid = false;
       for (let i = 0; i < kwValid.length; i++) {
-        if (rsp.includes(kwValid[i])) {
+        if (rsp === kwValid[i] && rsp.length === 1) {
           valid = true;
           console.log("Respuesta: ", ctx.body);
         }
       }
 
       if (valid == false) {
-        return fallBack();
+        fallBack([
+          "*Porfavor selecciona una de nuestras opciones:*",
+          "\n_1️⃣ Servicios_",
+          "\n_2️⃣ Agendar una Cita_",
+          "\n_3️⃣ Contacto_",
+          "\n_4️⃣ Promociones_", 
+          "\n_5️⃣ Ubicacion_",
+        ]);
       }
     },
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
   );
 
-  const flowMenu = addKeyword('m')
+//(["^1$"], {regex: true,})
+
+  const flowMenu = addKeyword(["^[mM]$"], {regex: true,})
   .addAnswer(
     "Comentanos ¿Que te gustaría saber?"
   )
@@ -325,16 +312,11 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
     },
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
   )
-  .addAnswer(
-    "Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773",
-    null,
-    null,
-    [flowGracias]
-);
+  .addAnswer("Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773");
 
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal, flowMenu]);
+  const adapterFlow = createFlow([flowPrincipal, flowGracias, flowServicios]);
   const adapterProvider = createProvider(BaileysProvider);
   createBot({
     flow: adapterFlow,

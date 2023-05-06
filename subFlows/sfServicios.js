@@ -35,7 +35,7 @@ function retMsgs(...messages) {
 const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
 .addAnswer("Muchas gracias a ti 😊")
 
-const servicioAlisado = addKeyword(['a', 'A'], {sensitive: true,})
+const servicioAlisado = addKeyword(["^1$"], {regex: true,})
 .addAnswer("*Alisado:*", null, async (ctx, {flowDynamic}) => {
     const messages = readMessagesFromFile('./resources/dataServicios.json', 'alisado');
     const messageObjects = retMsgs(...messages)
@@ -43,11 +43,8 @@ const servicioAlisado = addKeyword(['a', 'A'], {sensitive: true,})
     return flowDynamic(messageObjects)
 })
 .addAnswer(
-  "Para volver al menu principal, presione m 😊.\nSi desea comunicarse con una recepcionista, escribanos a este numero: 974322773",
-  null,
-  null,
-  [flowGracias]
-);
+  "▬Para consultar otro servicio, escriba *S* 😊" +
+  "\n▬Si desea comunicarse con una recepcionista, escribanos a este numero: 974322773");
 
 const servicioMechas = addKeyword(['b', 'B'], {sensitive: true,})
 .addAnswer("*Mechas:*", null, async (ctx, {flowDynamic}) => {
@@ -169,7 +166,7 @@ const servicioOtros = addKeyword(['j', 'J'])
   return flowDynamic(messageObjects)
 })
 .addAnswer(
-"Si desea volver al menu principal para otra consulta, solo vuelvanos a escribir 😊",
+"Si desea volver al para otra consulta, solo vuelvanos a escribir 😊",
 null,
 null,
 [flowGracias]
