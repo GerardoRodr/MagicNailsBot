@@ -237,7 +237,19 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
     }
 
     if (valid == false) {
-      return fallBack("Por favor solo ingrese una letra" + rsp);
+      return fallBack([
+        "Por favor seleccione una de nuestras opciones:",
+        "\n*1️⃣ ALISADOS*",
+        "\n*2️⃣ MECHAS*",
+        "\n*3️⃣ MANICURE*",
+        "\n*4️⃣ MAQUILLAJE*",
+        "\n*5️⃣ CEJAS Y PESTAÑAS*",
+        "\n*6️⃣ PEDICURE*",
+        "\n*7️⃣ DEPILACIONES*",
+        "\n*8️⃣ LIMPIEZA FACIAL*",
+        "\n*9️⃣ TRATAMIENTO CAPILARES*",
+        "\n*🔟 OTROS*",
+      ]);
     }
   },
   [servicioAlisado, servicioMechas, servicioManicure, 
