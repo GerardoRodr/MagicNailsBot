@@ -23,8 +23,17 @@ const QRPortalWeb = require("@bot-whatsapp/portal");
 const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
+//Este regex valida: oc, ok, okey, okei, 👍, listo. Asi contenga mayusculas
+const flowOk = addKeyword(["^([oO][kKcC]|[oO][kK][eE][yYiI]|👍|[lL][iI][sS][tT][oO])$"], {regex: true,})
+.addAnswer([
+  "⬅️ Recuerda que si tienes otra consulta y quieres volver al menu principal, puedes escribir **M**",
+  "\n📲 Si deseas comunicarte con una recepcionista, puedes escribirnos a este numero: 974322773"]);
+
 const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
 .addAnswer("Gracias a ti 😊")
+.addAnswer([
+  "⬅️ Recuerda que si tienes otra consulta y quieres volver al menu principal, puedes escribir **M**",
+  "\n📲 Si deseas comunicarte con una recepcionista, puedes escribirnos a este numero: 974322773"]);
 
 const flowUbicacion = addKeyword(["^5$"], {regex: true,})
 .addAnswer(
@@ -121,7 +130,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
     }
   )
   .addAnswer(
-    "En unos momentos te llamará una asistente real para que puedan consolidar la reservacion 🙌"
+    "En unos momentos te llamará una recepcionista real para que puedan consolidar la reservacion 🙌"
   );
 
   const flowPromociones = addKeyword(["^(4|[pP])$"], {regex: true,})
@@ -138,7 +147,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
       "\n*9️⃣ TRATAMIENTO CAPILARES*",
       "\n*🔟 OTROS*",
     ])
-    .addAnswer("Si desea ver el detalle de alguna promocion escriba la letra correspondiente.",
+    .addAnswer("Si desea ver el detalle de alguna promocion escriba el numero correspondiente.",
     { capture: true },
     (ctx, { fallBack, endFlow }) => {
       const rsp = ctx.body;
@@ -218,19 +227,19 @@ const flowServicios = addKeyword(["^(1|[sS])$"], {regex: true,})
     }
 
     if (valid == false) {
-      return fallBack([
-        "*_⚠️ Por favor elija una opcion valida ⚠️_*",
-        "\n*1️⃣ ALISADOS*",
-        "\n*2️⃣ MECHAS*",
-        "\n*3️⃣ MANICURE*",
-        "\n*4️⃣ MAQUILLAJE*",
-        "\n*5️⃣ CEJAS Y PESTAÑAS*",
-        "\n*6️⃣ PEDICURE*",
-        "\n*7️⃣ DEPILACIONES*",
-        "\n*8️⃣ LIMPIEZA FACIAL*",
-        "\n*9️⃣ TRATAMIENTO CAPILARES*",
-        "\n*🔟 OTROS*",
-      ]);
+      return fallBack(
+        "*_⚠️ Por favor elija una opcion valida ⚠️_*"+
+        "\n\n*1️⃣ ALISADOS*"+
+        "\n\n*2️⃣ MECHAS*"+
+        "\n\n*3️⃣ MANICURE*"+
+        "\n\n*4️⃣ MAQUILLAJE*"+
+        "\n\n*5️⃣ CEJAS Y PESTAÑAS*"+
+        "\n\n*6️⃣ PEDICURE*"+
+        "\n\n*7️⃣ DEPILACIONES*"+
+        "\n\n*8️⃣ LIMPIEZA FACIAL*"+
+        "\n\n*9️⃣ TRATAMIENTO CAPILARES*"+
+        "\n\n*🔟 OTROS*"
+      );
     }
   },
   [servicioAlisado, servicioMechas, servicioManicure, 
@@ -267,15 +276,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
       }
 
       if (valid == false) {
-        fallBack([
-          "*Porfavor selecciona una de nuestras opciones:*",
-          "\n*1️⃣ Servicios*",
-          "\n*2️⃣ Agendar una Cita*",
-          "\n*3️⃣ Contacto*",
-          "\n*4️⃣ Promociones*", 
-          "\n*5️⃣ Ubicacion*",
-          "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*",
-        ]);
+        fallBack();
       }
     },
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones, flowGracias]
@@ -307,15 +308,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
       }
 
       if (valid == false) {
-        fallBack([
-          "*Porfavor selecciona una de nuestras opciones:*",
-          "\n*1️⃣ Servicios*",
-          "\n*2️⃣ Agendar una Cita*",
-          "\n*3️⃣ Contacto*",
-          "\n*4️⃣ Promociones*", 
-          "\n*5️⃣ Ubicacion*",
-          "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*"
-        ]);
+        fallBack();
       }
     },
     [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
@@ -325,7 +318,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
 
 const main = async () => {
   const adapterDB = new MockAdapter();
-  const adapterFlow = createFlow([flowPrincipal, flowGracias, flowServicios, flowPromociones, flowMenu]);
+  const adapterFlow = createFlow([flowPrincipal, flowGracias, flowServicios, flowPromociones, flowMenu, flowOk]);
   const adapterProvider = createProvider(BaileysProvider);
   createBot({
     flow: adapterFlow,
