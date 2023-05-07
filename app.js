@@ -173,17 +173,17 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
 
       if (valid == false) {
         return fallBack([
-          "*_⚠️Por favor elija una opcion valida:⚠️*_",
-          "\n*1️⃣ ALISADOS*",
-          "\n*2️⃣ MECHAS*",
-          "\n*3️⃣ MANICURE*",
-          "\n*4️⃣ MAQUILLAJE*",
-          "\n*5️⃣ CEJAS Y PESTAÑAS*",
-          "\n*6️⃣ PEDICURE*",
-          "\n*7️⃣ DEPILACIONES*",
-          "\n*8️⃣ LIMPIEZA FACIAL*",
-          "\n*9️⃣ TRATAMIENTO CAPILARES*",
-          "\n*🔟 OTROS*",
+          "*_⚠️ Por favor elija una opcion valida ⚠️_*"+
+          "\n\n*1️⃣ ALISADOS*"+
+          "\n\n*2️⃣ MECHAS*"+
+          "\n\n*3️⃣ MANICURE*"+
+          "\n\n*4️⃣ MAQUILLAJE*"+
+          "\n\n*5️⃣ CEJAS Y PESTAÑAS*"+
+          "\n\n*6️⃣ PEDICURE*"+
+          "\n\n*7️⃣ DEPILACIONES*"+
+          "\n\n*8️⃣ LIMPIEZA FACIAL*"+
+          "\n\n*9️⃣ TRATAMIENTO CAPILARES*"+
+          "\n\n*🔟 OTROS*"
         ]);
       }
     },
