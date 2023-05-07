@@ -24,7 +24,7 @@ const BaileysProvider = require("@bot-whatsapp/provider/baileys");
 const MockAdapter = require("@bot-whatsapp/database/mock");
 
 const flowGracias = addKeyword(["Gracias", "grasias", "agradesco", "agradezco"])
-.addAnswer("Muchas gracias a ti 😊")
+.addAnswer("Gracias a ti 😊")
 
 const flowUbicacion = addKeyword(["^5$"], {regex: true,})
 .addAnswer(
@@ -263,6 +263,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
           valid = true;
           console.log("Respuesta: ", ctx.body);
         }
+
       }
 
       if (valid == false) {
@@ -273,11 +274,11 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
           "\n*3️⃣ Contacto*",
           "\n*4️⃣ Promociones*", 
           "\n*5️⃣ Ubicacion*",
-          "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*"
+          "\n*Si desea comunicarse con una recepcionista. Escribanos a este numero: 974322773*",
         ]);
       }
     },
-    [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones]
+    [flowServicios, flowCita, flowContacto, flowUbicacion, flowPromociones, flowGracias]
   )
 
   const flowMenu = addKeyword(["^[mM]$"], {regex: true,})
