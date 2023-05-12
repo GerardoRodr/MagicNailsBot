@@ -147,7 +147,7 @@ const flowCita = addKeyword(["^2$"], {regex: true,})
       "\n*9️⃣ TRATAMIENTO CAPILARES*",
       "\n*🔟 OTROS*",
     ])
-    .addAnswer("Si desea ver el detalle de alguna promocion escriba el numero correspondiente.",
+    .addAnswer("Si desea ver el detalle de alguna promocion escriba el numero correspondiente 🙌",
     { capture: true },
     (ctx, { fallBack, endFlow }) => {
       const rsp = ctx.body;
@@ -252,7 +252,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
   .addAnswer("Comentanos ¿Que te gustaría saber?")
   .addAnswer(
     [
-      "*Porfavor selecciona una de nuestras opciones:*",
+      "*Porfavor selecciona una de nuestras opciones (escribiendo el numero correspondiente):*",
       "\n*1️⃣ Servicios*",
       "\n*2️⃣ Agendar una Cita*",
       "\n*3️⃣ Contacto*",
@@ -285,7 +285,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME)
   const flowMenu = addKeyword(["^[mM]$"], {regex: true,})
   .addAnswer(
     [
-      "*Porfavor selecciona una de nuestras opciones:*",
+      "*Porfavor selecciona una de nuestras opciones (escribiendo el numero correspondiente):*",
       "\n*1️⃣ Servicios*",
       "\n*2️⃣ Agendar una Cita*",
       "\n*3️⃣ Contacto*",
